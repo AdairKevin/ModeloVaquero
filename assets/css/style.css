@@ -1,0 +1,260 @@
+/* ===== SOBRE ===== */
+.envelope-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  background: var(--color-bg);
+  transition: opacity 0.8s;
+}
+.envelope-screen.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+.envelope {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background: var(--color-secondary);
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: var(--color-primary);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top;
+  transition: transform 0.8s;
+  filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.25));
+}
+.envelope.open .envelope-flap {
+  transform: rotateX(180deg);
+}
+.wax-seal {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #fff;
+  font-family: var(--font-title);
+  font-size: 1.3rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.envelope-hint {
+  font-size: 0.9rem;
+  color: var(--color-primary);
+}
+
+/* ===== HOME ===== */
+.section-home {
+  position: relative;
+  padding: 0;
+}
+.home-img {
+  width: 100%;
+  height: auto;
+}
+.home-title {
+  padding: 24px 20px;
+}
+.home-evento {
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+.home-title h1 {
+  font-size: 3rem;
+  line-height: 1.1;
+}
+
+/* ===== MÚSICA ===== */
+.music-card {
+  background: var(--color-card);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+.song-title {
+  font-weight: 700;
+}
+.artist-name {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+.play-button {
+  margin: 12px auto;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.progress-container {
+  height: 4px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.progress {
+  width: 0;
+  height: 100%;
+  background: var(--color-accent);
+}
+
+/* ===== PALABRAS ===== */
+.section-palabras p {
+  font-style: italic;
+}
+.section-palabras small {
+  display: block;
+  margin-top: 12px;
+}
+
+/* ===== INFO ===== */
+.section-info h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.info-content {
+  margin-bottom: 16px;
+}
+.info-content ul {
+  list-style: none;
+}
+.date-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 24px;
+  padding: 16px;
+  border: 2px solid var(--color-primary);
+  border-radius: 12px;
+}
+.date-box strong {
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+  color: var(--color-primary);
+}
+
+/* ===== TIMER ===== */
+.date-time {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  list-style: none;
+  margin-top: 16px;
+}
+.date-time li {
+  background: var(--color-card);
+  border-radius: 10px;
+  padding: 10px 0;
+}
+.time_number {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+.time_txt {
+  font-size: 0.75rem;
+}
+
+/* ===== UBICACIONES ===== */
+.section-place {
+  display: grid;
+  gap: 20px;
+}
+.place-card {
+  background: var(--color-card);
+  border-radius: 16px;
+  padding: 24px 20px;
+}
+.place-btn,
+.rsvp-btn {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  background: var(--color-primary);
+  color: #fff;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* ===== GALERÍA ===== */
+.section-slider {
+  padding: 0;
+}
+.slider-photo {
+  overflow: hidden;
+  transition: height 0.5s;
+}
+.slider-track {
+  display: flex;
+  align-items: flex-start;
+  transition: transform 0.8s ease;
+}
+.slider-track .img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: auto;
+}
+
+/* ===== INFO ADICIONAL ===== */
+.info-separator {
+  width: 60%;
+  height: 2px;
+  margin: 24px auto;
+  background: var(--color-accent);
+}
+
+/* ===== RSVP ===== */
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 20px;
+  background: var(--color-card);
+  border-radius: 16px;
+}
+.rsvp-form input,
+.rsvp-form textarea,
+.rsvp-form .rsvp-btn {
+  width: 100%;
+  font: inherit;
+}
+.rsvp-form input,
+.rsvp-form textarea {
+  padding: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  padding: 20px;
+  text-align: center;
+  font-size: 0.8rem;
+}
+footer a {
+  color: var(--color-primary);
+}

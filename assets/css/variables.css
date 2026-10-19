@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Rye&family=Poppins:wght@400;700&display=swap");
+/* Paleta del modelo Modelo Vaquero: edita aquí colores y tipografías */
+:root {
+  --color-primary: #8b4513;
+  --color-secondary: #d2a679;
+  --color-accent: #a0522d;
+  --color-bg: #f5ead7;
+  --color-card: #fffaf0;
+  --color-text: #3e2a1a;
+  --font-title: "Rye", cursive;
+  --font-text: "Poppins", sans-serif;
+}

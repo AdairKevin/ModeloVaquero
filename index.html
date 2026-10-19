@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modelo Vaquero</title>
+    <link rel="stylesheet" href="./assets/css/variables.css" />
+    <link rel="stylesheet" href="./assets/css/layout.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
+  </head>
+
+  <body>
+    <!-- 1. SOBRE DE BIENVENIDA -->
+    <div class="envelope-screen" id="envelopeScreen">
+      <div class="envelope">
+        <div class="envelope-flap"></div>
+        <button class="wax-seal" id="openEnvelope">★</button>
+      </div>
+      <p class="envelope-hint">Toca el sello para abrir</p>
+    </div>
+
+    <main class="content hidden" id="invitationContent">
+      <!-- 2. HOME -->
+      <section class="section-home">
+        <img class="home-img" src="./assets/img/portada.jpg" alt="Foto principal" />
+        <div class="home-title">
+          <p class="home-evento">Mis XV años</p>
+          <h1>Nombre</h1>
+        </div>
+      </section>
+
+      <!-- 3. MÚSICA -->
+      <section class="section-music">
+        <div class="music-card">
+          <div class="song-title">Nombre de la canción</div>
+          <div class="artist-name">Artista</div>
+          <button class="play-button" id="playPauseBtn">▶</button>
+          <div class="progress-container">
+            <div class="progress" id="progressBar"></div>
+          </div>
+          <audio id="music" loop src="./assets/music/cancion.mp3"></audio>
+        </div>
+      </section>
+
+      <!-- 4. PALABRAS / DEDICATORIA -->
+      <section class="section-palabras">
+        <p>Mensaje de los papás o anfitriones para los invitados.</p>
+        <small>— Firma</small>
+      </section>
+
+      <!-- 5. INFO FORMAL -->
+      <section class="section-info">
+        <h2>Te invitamos a celebrar</h2>
+        <div class="info-content">
+          <b>Mis papás</b>
+          <ul>
+            <li>Nombre mamá</li>
+            <li>Nombre papá</li>
+          </ul>
+        </div>
+        <div class="info-content">
+          <b>Mis padrinos</b>
+          <ul>
+            <li>Nombre padrino/madrina</li>
+          </ul>
+        </div>
+        <div class="date-box">
+          <span>SÁBADO</span>
+          <strong>01 · ENE · 2027</strong>
+          <span>16:00 hrs</span>
+        </div>
+      </section>
+
+      <!-- 6. CUENTA REGRESIVA -->
+      <section class="section-timer">
+        <h2>Solo faltan</h2>
+        <ul class="date-time">
+          <li><div class="time_number" id="dias">0</div><div class="time_txt">Días</div></li>
+          <li><div class="time_number" id="horas">0</div><div class="time_txt">Horas</div></li>
+          <li><div class="time_number" id="minutos">0</div><div class="time_txt">Min</div></li>
+          <li><div class="time_number" id="segundos">0</div><div class="time_txt">Seg</div></li>
+        </ul>
+      </section>
+
+      <!-- 7. UBICACIONES -->
+      <section class="section-place">
+        <div class="place-card">
+          <h2>Ceremonia</h2>
+          <p><b>16:00 hrs</b> Nombre y dirección del lugar</p>
+          <a class="place-btn" href="#" target="_blank">Ver ubicación</a>
+        </div>
+        <div class="place-card">
+          <h2>Recepción</h2>
+          <p><b>18:00 hrs</b> Nombre y dirección del lugar</p>
+          <a class="place-btn" href="#" target="_blank">Ver ubicación</a>
+        </div>
+      </section>
+
+      <!-- GALERÍA (después de la recepción) -->
+      <section class="section-slider">
+        <div class="slider-photo">
+          <figure class="slider-track" id="sliderTrack">
+            <img class="img" src="./assets/img/foto1.jpg" alt="Foto 1" />
+            <img class="img" src="./assets/img/foto2.jpg" alt="Foto 2" />
+            <img class="img" src="./assets/img/foto3.jpg" alt="Foto 3" />
+          </figure>
+        </div>
+      </section>
+
+      <!-- 8. INFO ADICIONAL -->
+      <section class="section-info-adicional">
+        <div class="info-block">
+          <h2>Vestimenta</h2>
+          <p>Código de vestimenta y colores reservados.</p>
+        </div>
+        <div class="info-separator"></div>
+        <div class="info-block">
+          <h2>Mesa de regalos</h2>
+          <p>Tu presencia es el mejor regalo.</p>
+        </div>
+      </section>
+
+      <!-- 9. CONFIRMACIÓN (RSVP por WhatsApp) -->
+      <section class="section-message">
+        <p>Los mejores momentos merecen ser compartidos</p>
+        <b>¡Te esperamos!</b>
+        <form class="rsvp-form" data-whatsapp="" data-evento="mis XV años">
+          <h3>Confirma tu asistencia</h3>
+          <input name="nombre" type="text" placeholder="Nombre completo" required />
+          <input name="personas" type="number" min="1" placeholder="Número de asistentes" required />
+          <textarea name="mensaje" rows="3" placeholder="Mensaje (opcional)"></textarea>
+          <button type="submit" class="rsvp-btn">Confirmar por WhatsApp</button>
+        </form>
+      </section>
+
+      <!-- 10. FOOTER -->
+      <footer>
+        Diseñado por
+        <a href="https://www.facebook.com/profile.php?id=61568997140138" target="_blank">Mirai</a>
+        @2026
+      </footer>
+    </main>
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>

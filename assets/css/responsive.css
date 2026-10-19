@@ -1,0 +1,14 @@
+/* Tablets y escritorio: la invitación se mantiene como columna centrada */
+@media (min-width: 768px) {
+  body {
+    background: var(--color-secondary);
+  }
+  .content {
+    background: var(--color-bg);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
+  }
+  .envelope {
+    width: 400px;
+    height: 260px;
+  }
+}

@@ -1,0 +1,44 @@
+/* Mobile first: todo se diseña para 375px; responsive.css amplía en pantallas grandes */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-text);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.content {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+section {
+  padding: 48px 20px;
+  text-align: center;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-title);
+  color: var(--color-primary);
+  font-weight: 400;
+}
