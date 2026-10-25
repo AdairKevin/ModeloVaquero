@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Modelo Vaquero</title>
+    <title>Invitación</title>
     <link rel="stylesheet" href="./assets/css/variables.css" />
     <link rel="stylesheet" href="./assets/css/layout.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
@@ -11,136 +11,150 @@
   </head>
 
   <body>
-    <!-- 1. SOBRE DE BIENVENIDA -->
-    <div class="envelope-screen" id="envelopeScreen">
-      <div class="envelope">
-        <div class="envelope-flap"></div>
-        <button class="wax-seal" id="openEnvelope">★</button>
+    <!-- Todos los textos se editan en contenido.json; aquí solo van variables -->
+    <template id="plantilla">
+      <!-- 1. SOBRE DE BIENVENIDA -->
+      <div class="envelope-screen" id="envelopeScreen">
+        <div class="envelope">
+          <div class="envelope-flap"></div>
+          <button class="wax-seal" id="openEnvelope" aria-label="{{sobre.botonAria}}">{{sobre.sello}}</button>
+        </div>
+        <p class="envelope-hint">{{sobre.instruccion}}</p>
       </div>
-      <p class="envelope-hint">Toca el sello para abrir</p>
-    </div>
 
-    <main class="content hidden" id="invitationContent">
-      <!-- 2. HOME -->
-      <section class="section-home">
-        <img class="home-img" src="./assets/img/portada.jpg" alt="Foto principal" />
-        <div class="home-title">
-          <p class="home-evento">Mis XV años</p>
-          <h1>Nombre</h1>
-        </div>
-      </section>
-
-      <!-- 3. MÚSICA -->
-      <section class="section-music">
-        <div class="music-card">
-          <div class="song-title">Nombre de la canción</div>
-          <div class="artist-name">Artista</div>
-          <button class="play-button" id="playPauseBtn">▶</button>
-          <div class="progress-container">
-            <div class="progress" id="progressBar"></div>
+      <main class="content hidden" id="invitationContent">
+        <!-- 2. HOME -->
+        <section class="section-home">
+          <img class="home-img" src="{{portada.foto}}" alt="{{portada.fotoAlt}}" />
+          <div class="home-title">
+            <p class="home-evento">{{portada.evento}}</p>
+            <h1>{{portada.nombre}}</h1>
           </div>
-          <audio id="music" loop src="./assets/music/cancion.mp3"></audio>
-        </div>
-      </section>
+        </section>
 
-      <!-- 4. PALABRAS / DEDICATORIA -->
-      <section class="section-palabras">
-        <p>Mensaje de los papás o anfitriones para los invitados.</p>
-        <small>— Firma</small>
-      </section>
+        <!-- 3. MÚSICA -->
+        {{#musica}}
+        <section class="section-music">
+          <div class="music-card">
+            <div class="song-title">{{musica.cancion}}</div>
+            <div class="artist-name">{{musica.artista}}</div>
+            <button class="play-button" id="playPauseBtn" aria-label="{{musica.botonAria}}">▶</button>
+            <div class="progress-container">
+              <div class="progress" id="progressBar"></div>
+            </div>
+            <audio id="music" loop src="{{musica.archivo}}"></audio>
+          </div>
+        </section>
+        {{/musica}}
 
-      <!-- 5. INFO FORMAL -->
-      <section class="section-info">
-        <h2>Te invitamos a celebrar</h2>
-        <div class="info-content">
-          <b>Mis papás</b>
-          <ul>
-            <li>Nombre mamá</li>
-            <li>Nombre papá</li>
+        <!-- 4. PALABRAS / DEDICATORIA -->
+        {{#dedicatoria}}
+        <section class="section-palabras">
+          <p>{{dedicatoria.texto}}</p>
+          <small>{{dedicatoria.firma}}</small>
+        </section>
+        {{/dedicatoria}}
+
+        <!-- 5. INFO FORMAL -->
+        {{#invitacion}}
+        <section class="section-info">
+          <h2>{{invitacion.titulo}}</h2>
+          {{#invitacion.familia}}
+          <div class="info-content">
+            <b>{{titulo}}</b>
+            <ul>
+              {{#nombres}}<li>{{.}}</li>{{/nombres}}
+            </ul>
+          </div>
+          {{/invitacion.familia}}
+          <div class="date-box">
+            <span>{{invitacion.fecha.dia}}</span>
+            <strong>{{invitacion.fecha.fecha}}</strong>
+            <span>{{invitacion.fecha.hora}}</span>
+          </div>
+        </section>
+        {{/invitacion}}
+
+        <!-- 6. CUENTA REGRESIVA (la fecha sale de evento.inicio) -->
+        {{#cuentaRegresiva}}
+        <section class="section-timer">
+          <h2>{{cuentaRegresiva.titulo}}</h2>
+          <ul class="date-time">
+            <li><div class="time_number" id="dias">0</div><div class="time_txt">{{cuentaRegresiva.dias}}</div></li>
+            <li><div class="time_number" id="horas">0</div><div class="time_txt">{{cuentaRegresiva.horas}}</div></li>
+            <li><div class="time_number" id="minutos">0</div><div class="time_txt">{{cuentaRegresiva.minutos}}</div></li>
+            <li><div class="time_number" id="segundos">0</div><div class="time_txt">{{cuentaRegresiva.segundos}}</div></li>
           </ul>
-        </div>
-        <div class="info-content">
-          <b>Mis padrinos</b>
-          <ul>
-            <li>Nombre padrino/madrina</li>
-          </ul>
-        </div>
-        <div class="date-box">
-          <span>SÁBADO</span>
-          <strong>01 · ENE · 2027</strong>
-          <span>16:00 hrs</span>
-        </div>
-      </section>
+        </section>
+        {{/cuentaRegresiva}}
 
-      <!-- 6. CUENTA REGRESIVA -->
-      <section class="section-timer">
-        <h2>Solo faltan</h2>
-        <ul class="date-time">
-          <li><div class="time_number" id="dias">0</div><div class="time_txt">Días</div></li>
-          <li><div class="time_number" id="horas">0</div><div class="time_txt">Horas</div></li>
-          <li><div class="time_number" id="minutos">0</div><div class="time_txt">Min</div></li>
-          <li><div class="time_number" id="segundos">0</div><div class="time_txt">Seg</div></li>
-        </ul>
-      </section>
+        <!-- 7. UBICACIONES -->
+        {{#ubicaciones}}
+        <section class="section-place">
+          {{#ubicaciones.lugares}}
+          <div class="place-card">
+            <h2>{{titulo}}</h2>
+            <p><b>{{hora}}</b> {{lugar}}</p>
+            <a class="place-btn" href="{{mapa}}" target="_blank">{{boton}}</a>
+          </div>
+          {{/ubicaciones.lugares}}
+        </section>
+        {{/ubicaciones}}
 
-      <!-- 7. UBICACIONES -->
-      <section class="section-place">
-        <div class="place-card">
-          <h2>Ceremonia</h2>
-          <p><b>16:00 hrs</b> Nombre y dirección del lugar</p>
-          <a class="place-btn" href="#" target="_blank">Ver ubicación</a>
-        </div>
-        <div class="place-card">
-          <h2>Recepción</h2>
-          <p><b>18:00 hrs</b> Nombre y dirección del lugar</p>
-          <a class="place-btn" href="#" target="_blank">Ver ubicación</a>
-        </div>
-      </section>
+        <!-- GALERÍA (después de la recepción) -->
+        {{#galeria}}
+        <section class="section-slider">
+          <div class="slider-photo">
+            <figure class="slider-track" id="sliderTrack">
+              {{#galeria.fotos}}<img class="img" src="{{foto}}" alt="{{alt}}" />{{/galeria.fotos}}
+            </figure>
+          </div>
+        </section>
+        {{/galeria}}
 
-      <!-- GALERÍA (después de la recepción) -->
-      <section class="section-slider">
-        <div class="slider-photo">
-          <figure class="slider-track" id="sliderTrack">
-            <img class="img" src="./assets/img/foto1.jpg" alt="Foto 1" />
-            <img class="img" src="./assets/img/foto2.jpg" alt="Foto 2" />
-            <img class="img" src="./assets/img/foto3.jpg" alt="Foto 3" />
-          </figure>
-        </div>
-      </section>
+        <!-- 8. INFO ADICIONAL -->
+        <section class="section-info-adicional">
+          {{#vestimenta}}
+          <div class="info-block">
+            <h2>{{vestimenta.titulo}}</h2>
+            <p>{{vestimenta.texto}}</p>
+          </div>
+          {{/vestimenta}}
+          {{#vestimenta}}{{#regalos}}<div class="info-separator"></div>{{/regalos}}{{/vestimenta}}
+          {{#regalos}}
+          <div class="info-block">
+            <h2>{{regalos.titulo}}</h2>
+            <p>{{regalos.texto}}</p>
+          </div>
+          {{/regalos}}
+        </section>
 
-      <!-- 8. INFO ADICIONAL -->
-      <section class="section-info-adicional">
-        <div class="info-block">
-          <h2>Vestimenta</h2>
-          <p>Código de vestimenta y colores reservados.</p>
-        </div>
-        <div class="info-separator"></div>
-        <div class="info-block">
-          <h2>Mesa de regalos</h2>
-          <p>Tu presencia es el mejor regalo.</p>
-        </div>
-      </section>
+        <!-- 9. CONFIRMACIÓN (RSVP por WhatsApp; el número va en confirmacion.whatsapp) -->
+        {{#confirmacion}}
+        <section class="section-message">
+          <p>{{confirmacion.frase}}</p>
+          <b>{{confirmacion.destacado}}</b>
+          <form class="rsvp-form">
+            <h3>{{confirmacion.titulo}}</h3>
+            <input name="nombre" type="text" placeholder="{{confirmacion.campoNombre}}" required />
+            <input name="personas" type="number" min="1" placeholder="{{confirmacion.campoAsistentes}}" required />
+            <textarea name="mensaje" rows="3" placeholder="{{confirmacion.campoMensaje}}"></textarea>
+            <button type="submit" class="rsvp-btn">{{confirmacion.boton}}</button>
+          </form>
+        </section>
+        {{/confirmacion}}
 
-      <!-- 9. CONFIRMACIÓN (RSVP por WhatsApp) -->
-      <section class="section-message">
-        <p>Los mejores momentos merecen ser compartidos</p>
-        <b>¡Te esperamos!</b>
-        <form class="rsvp-form" data-whatsapp="" data-evento="mis XV años">
-          <h3>Confirma tu asistencia</h3>
-          <input name="nombre" type="text" placeholder="Nombre completo" required />
-          <input name="personas" type="number" min="1" placeholder="Número de asistentes" required />
-          <textarea name="mensaje" rows="3" placeholder="Mensaje (opcional)"></textarea>
-          <button type="submit" class="rsvp-btn">Confirmar por WhatsApp</button>
-        </form>
-      </section>
+        <!-- 10. FOOTER -->
+        <footer>
+          {{footer.texto}}
+          <a href="{{footer.link}}" target="_blank">{{footer.marca}}</a>
+          {{footer.anio}}
+        </footer>
+      </main>
 
-      <!-- 10. FOOTER -->
-      <footer>
-        Diseñado por
-        <a href="https://www.facebook.com/profile.php?id=61568997140138" target="_blank">Mirai</a>
-        @2026
-      </footer>
-    </main>
-    <script src="./assets/js/main.js"></script>
+      <script src="./assets/js/main.js"></script>
+    </template>
+
+    <script src="./assets/js/motor.js"></script>
   </body>
 </html>

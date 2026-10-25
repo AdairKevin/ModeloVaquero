@@ -1,0 +1,124 @@
+{
+  "_instrucciones": "Aquí se cambian TODOS los textos, fotos, links y datos de la invitación. Para ocultar una sección pon su clave en false (ejemplo: \"musica\": false). Los textos aceptan <br> para saltos de línea. La fecha de evento.inicio la usa la cuenta regresiva.",
+  "pagina": {
+    "titulo": "Modelo Vaquero"
+  },
+  "evento": {
+    "inicio": "2027-01-01T16:00"
+  },
+  "sobre": {
+    "sello": "★",
+    "instruccion": "Toca el sello para abrir",
+    "botonAria": "Abrir invitación"
+  },
+  "portada": {
+    "foto": "./assets/img/portada.jpg",
+    "fotoAlt": "Foto principal",
+    "evento": "Mis XV años",
+    "nombre": "Nombre"
+  },
+  "musica": {
+    "archivo": "./assets/music/cancion.mp3",
+    "cancion": "Nombre de la canción",
+    "artista": "Artista",
+    "botonAria": "Reproducir música"
+  },
+  "dedicatoria": {
+    "texto": "Mensaje de los papás o anfitriones para los invitados.",
+    "firma": "— Firma"
+  },
+  "invitacion": {
+    "titulo": "Te invitamos a celebrar",
+    "familia": [
+      {
+        "titulo": "Mis papás",
+        "nombres": [
+          "Nombre mamá",
+          "Nombre papá"
+        ]
+      },
+      {
+        "titulo": "Mis padrinos",
+        "nombres": [
+          "Nombre padrino/madrina"
+        ]
+      }
+    ],
+    "fecha": {
+      "dia": "SÁBADO",
+      "fecha": "01 · ENE · 2027",
+      "hora": "16:00 hrs"
+    }
+  },
+  "cuentaRegresiva": {
+    "titulo": "Solo faltan",
+    "dias": "Días",
+    "horas": "Horas",
+    "minutos": "Min",
+    "segundos": "Seg"
+  },
+  "ubicaciones": {
+    "lugares": [
+      {
+        "titulo": "Ceremonia",
+        "hora": "16:00 hrs",
+        "lugar": "Nombre y dirección del lugar",
+        "mapa": "#",
+        "boton": "Ver ubicación"
+      },
+      {
+        "titulo": "Recepción",
+        "hora": "18:00 hrs",
+        "lugar": "Nombre y dirección del lugar",
+        "mapa": "#",
+        "boton": "Ver ubicación"
+      }
+    ]
+  },
+  "galeria": {
+    "fotos": [
+      {
+        "foto": "./assets/img/foto1.jpg",
+        "alt": "Foto 1"
+      },
+      {
+        "foto": "./assets/img/foto2.jpg",
+        "alt": "Foto 2"
+      },
+      {
+        "foto": "./assets/img/foto3.jpg",
+        "alt": "Foto 3"
+      }
+    ]
+  },
+  "vestimenta": {
+    "titulo": "Vestimenta",
+    "texto": "Código de vestimenta y colores reservados."
+  },
+  "regalos": {
+    "titulo": "Mesa de regalos",
+    "texto": "Tu presencia es el mejor regalo."
+  },
+  "confirmacion": {
+    "frase": "Los mejores momentos merecen ser compartidos",
+    "destacado": "¡Te esperamos!",
+    "titulo": "Confirma tu asistencia",
+    "whatsapp": "",
+    "campoNombre": "Nombre completo",
+    "campoAsistentes": "Número de asistentes",
+    "campoMensaje": "Mensaje (opcional)",
+    "boton": "Confirmar por WhatsApp",
+    "mensajeWhatsapp": {
+      "saludo": "¡Hola! Confirmo mi asistencia a mis XV años.",
+      "nombre": "Nombre",
+      "asistentes": "Número de asistentes",
+      "mensaje": "Mensaje"
+    }
+  },
+  "footer": {
+    "texto": "Diseñado por",
+    "marca": "Mirai",
+    "link": "https://www.facebook.com/profile.php?id=61568997140138",
+    "anio": "@2026"
+  }
+}
