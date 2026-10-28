@@ -6,12 +6,14 @@
   "evento": {
     "inicio": "2027-01-01T16:00"
   },
-  "sobre": {
-    "sello": "★",
-    "instruccion": "Toca el sello para abrir",
-    "botonAria": "Abrir invitación"
+  "puertas": {
+    "letrero": "Bienvenidos",
+    "instruccion": "Toca las puertas para entrar",
+    "botonAria": "Abrir las puertas de la invitación"
   },
   "portada": {
+    "bienvenida": "MIS QUINCE AÑOS",
+    "letrasFondo": "XV",
     "foto": "./assets/img/portada.jpg",
     "fotoAlt": "Foto principal",
     "evento": "Mis XV años",
@@ -32,16 +34,11 @@
     "familia": [
       {
         "titulo": "Mis papás",
-        "nombres": [
-          "Nombre mamá",
-          "Nombre papá"
-        ]
+        "nombres": ["Nombre mamá", "Nombre papá"]
       },
       {
         "titulo": "Mis padrinos",
-        "nombres": [
-          "Nombre padrino/madrina"
-        ]
+        "nombres": ["Nombre padrino/madrina"]
       }
     ],
     "fecha": {

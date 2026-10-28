@@ -7,8 +7,4 @@
     background: var(--color-bg);
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
   }
-  .envelope {
-    width: 400px;
-    height: 260px;
-  }
 }

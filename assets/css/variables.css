@@ -1,12 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Rye&family=Poppins:wght@400;700&display=swap");
-/* Paleta del modelo Modelo Vaquero: edita aquí colores y tipografías */
+/* Paleta del modelo Vaquero (cowgirl rosa + western café): edita aquí colores y tipografías.
+   La pantalla de las puertas tiene sus propios colores fijos en style.css */
 :root {
-  --color-primary: #8b4513;
-  --color-secondary: #d2a679;
-  --color-accent: #a0522d;
-  --color-bg: #f5ead7;
-  --color-card: #fffaf0;
-  --color-text: #3e2a1a;
+  --color-primary: #c45c7a; /* rosa cowgirl (principal): títulos, botones, bordes */
+  --color-secondary: #6b3f26; /* café cuero (secundario): tarjeta de música, fondo en escritorio */
+  --color-accent: #e8a6b6; /* rosa claro: estrellas, letras de fondo, separadores */
+  --color-bg: #f7ece0; /* crema */
+  --color-card: #fdf6ee;
+  --color-text: #3b2416; /* café oscuro para leer */
+  /* Madera, latón y soga de las puertas de cantina */
+  --madera-clara: #9b6b43;
+  --madera-media: #6e4429;
+  --madera-oscura: #3a2214;
+  --laton: #b98d4f;
+  --soga: #c9a66b;
   --font-title: "Rye", cursive;
   --font-text: "Poppins", sans-serif;
 }

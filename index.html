@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -13,35 +13,319 @@
   <body>
     <!-- Todos los textos se editan en contenido.json; aquí solo van variables -->
     <template id="plantilla">
-      <!-- 1. SOBRE DE BIENVENIDA -->
-      <div class="envelope-screen" id="envelopeScreen">
-        <div class="envelope">
-          <div class="envelope-flap"></div>
-          <button class="wax-seal" id="openEnvelope" aria-label="{{sobre.botonAria}}">{{sobre.sello}}</button>
+      <!-- 1. PUERTAS DE CANTINA DE BIENVENIDA (cartel western: madera rústica + detalles rosa) -->
+      <div class="cantina-screen" id="cantinaScreen">
+        <!-- Dibujos reutilizables: puerta, voluta, estrella y herradura -->
+        <svg class="cantina-defs" aria-hidden="true">
+          <defs>
+            <path
+              id="voluta"
+              d="M100,98 L95,106 L100,114 L105,106 Z M100,114 C92,104 80,102 73,109 C66,116 72,126 80,123 C86,121 85,113 79,114 M100,114 C108,104 120,102 127,109 C134,116 128,126 120,123 C114,121 115,113 121,114 M100,114 C94,124 82,130 66,126 M100,114 C106,124 118,130 134,126"
+            />
+            <polygon
+              id="estrellaRosa"
+              points="0,-16 4.1,-5.7 15.2,-4.9 6.7,2.2 9.4,12.9 0,7 -9.4,12.9 -6.7,2.2 -15.2,-4.9 -4.1,-5.7"
+            />
+          </defs>
+          <symbol
+            id="puertaVaquera"
+            viewBox="0 0 200 500"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <clipPath id="formaPuerta">
+                <path
+                  d="M0,46 C30,14 80,8 118,26 C150,42 172,74 200,70 L200,440 C150,452 80,470 0,488 Z"
+                />
+              </clipPath>
+              <linearGradient id="maderaPuerta" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" style="stop-color: var(--madera-media)" />
+                <stop offset="1" style="stop-color: var(--madera-oscura)" />
+              </linearGradient>
+              <linearGradient id="tablilla" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" style="stop-color: var(--madera-clara)" />
+                <stop offset="0.6" style="stop-color: var(--madera-media)" />
+                <stop offset="1" style="stop-color: var(--madera-oscura)" />
+              </linearGradient>
+              <filter id="vetaMadera" x="0" y="0" width="100%" height="100%">
+                <feTurbulence
+                  type="fractalNoise"
+                  baseFrequency="0.035 0.0035"
+                  numOctaves="4"
+                  seed="7"
+                />
+                <feColorMatrix
+                  values="0 0 0 0 0.12  0 0 0 0 0.07  0 0 0 0 0.04  1.2 0 0 0 -0.4"
+                />
+              </filter>
+            </defs>
+            <g clip-path="url(#formaPuerta)">
+              <rect width="200" height="500" fill="url(#maderaPuerta)" />
+              <rect
+                class="veta"
+                width="200"
+                height="500"
+                filter="url(#vetaMadera)"
+              />
+              <!-- panel tallado de arriba -->
+              <rect
+                class="tabla-panel"
+                x="30"
+                y="80"
+                width="140"
+                height="66"
+                rx="8"
+              />
+              <use href="#voluta" class="voluta" />
+              <!-- persianas con estrella rosa -->
+              <rect
+                class="tabla-panel"
+                x="30"
+                y="162"
+                width="140"
+                height="170"
+                rx="4"
+              />
+              <rect
+                x="38"
+                y="170"
+                width="124"
+                height="11"
+                fill="url(#tablilla)"
+              />
+              <rect
+                x="38"
+                y="186"
+                width="124"
+                height="11"
+                fill="url(#tablilla)"
+              />
+              <rect
+                x="38"
+                y="202"
+                width="124"
+                height="11"
+                fill="url(#tablilla)"
+              />
+              <rect
+                x="38"
+                y="218"
+                width="124"
+                height="11"
+                fill="url(#tablilla)"
+              />
+              <rect
+                x="38"
+                y="234"
+                width="124"
+                height="11"
+                fill="url(#tablilla)"
+              />
+              <rect
+                x="38"
+                y="250"
+                width="124"
+                height="11"
+                fill="url(#tablilla)"
+              />
+              <rect
+                x="38"
+                y="266"
+                width="124"
+                height="11"
+                fill="url(#tablilla)"
+              />
+              <rect
+                x="38"
+                y="282"
+                width="124"
+                height="11"
+                fill="url(#tablilla)"
+              />
+              <rect
+                x="38"
+                y="298"
+                width="124"
+                height="11"
+                fill="url(#tablilla)"
+              />
+              <rect
+                x="38"
+                y="314"
+                width="124"
+                height="11"
+                fill="url(#tablilla)"
+              />
+              <use href="#estrellaRosa" class="estrella-rosa" x="100" y="248" />
+              <!-- panel tallado de abajo -->
+              <rect
+                class="tabla-panel"
+                x="30"
+                y="348"
+                width="140"
+                height="74"
+                rx="8"
+              />
+              <use href="#voluta" class="voluta" y="273" />
+              <!-- bisagras de latón -->
+              <rect
+                class="laton"
+                x="-4"
+                y="100"
+                width="20"
+                height="30"
+                rx="3"
+              />
+              <rect
+                class="laton"
+                x="-4"
+                y="390"
+                width="20"
+                height="30"
+                rx="3"
+              />
+            </g>
+            <path
+              class="contorno"
+              d="M0,46 C30,14 80,8 118,26 C150,42 172,74 200,70 L200,440 C150,452 80,470 0,488 Z"
+            />
+          </symbol>
+          <symbol id="herradura" viewBox="0 0 40 46">
+            <path
+              class="herradura-borde"
+              d="M8,4 C1,20 4,40 20,42 C36,40 39,20 32,4"
+            />
+            <path
+              class="herradura-rosa"
+              d="M8,4 C1,20 4,40 20,42 C36,40 39,20 32,4"
+            />
+          </symbol>
+        </svg>
+
+        <!-- Estrellas rosas en las esquinas del cartel -->
+        <span class="esquina q1" aria-hidden="true">★</span>
+        <span class="esquina q2" aria-hidden="true">★</span>
+        <span class="esquina q3" aria-hidden="true">★</span>
+        <span class="esquina q4" aria-hidden="true">★</span>
+
+        <!-- Letrero en arco -->
+        <div class="cantina-letrero">
+          <svg class="cantina-arco" viewBox="0 0 340 90">
+            <path id="arcoLetrero" d="M 8 86 Q 170 0 332 86" fill="none" />
+            <text text-anchor="middle">
+              <textPath href="#arcoLetrero" startOffset="50%">
+                {{puertas.letrero}}
+              </textPath>
+            </text>
+          </svg>
+          <p class="cantina-adorno" aria-hidden="true">✦ ★ ✦</p>
         </div>
-        <p class="envelope-hint">{{sobre.instruccion}}</p>
+
+        <button
+          class="cantina-puertas"
+          id="abrirPuertas"
+          aria-label="{{puertas.botonAria}}"
+        >
+          <!-- Poste izquierdo con soga y herradura -->
+          <span class="poste poste-izq" aria-hidden="true">
+            <svg class="soga" viewBox="0 0 30 300" preserveAspectRatio="none">
+              <path
+                d="M15,0 C30,40 0,80 15,120 C30,160 0,200 15,240 C30,270 5,290 15,300"
+              />
+            </svg>
+            <svg class="herradura"><use href="#herradura" /></svg>
+          </span>
+          <span class="puerta puerta-izq">
+            <svg class="puerta-svg">
+              <use href="#puertaVaquera" width="100%" height="100%" />
+            </svg>
+          </span>
+          <span class="puerta puerta-der">
+            <svg class="puerta-svg espejo">
+              <use href="#puertaVaquera" width="100%" height="100%" />
+            </svg>
+          </span>
+          <!-- Poste derecho con soga y herradura -->
+          <span class="poste poste-der" aria-hidden="true">
+            <svg class="soga" viewBox="0 0 30 300" preserveAspectRatio="none">
+              <path
+                d="M15,0 C30,40 0,80 15,120 C30,160 0,200 15,240 C30,270 5,290 15,300"
+              />
+            </svg>
+            <svg class="herradura"><use href="#herradura" /></svg>
+          </span>
+          <!-- Moño que amarra las puertas (se desata al abrir) -->
+          <svg class="cantina-mono" viewBox="0 0 100 62" aria-hidden="true">
+            <path
+              class="mono-cinta"
+              d="M46,32 L30,60 L39,57 L48,37 Z M54,32 L70,60 L61,57 L52,37 Z"
+            />
+            <path
+              class="mono-cinta"
+              d="M50,30 C30,4 4,10 10,30 C4,50 30,56 50,30 Z M50,30 C70,4 96,10 90,30 C96,50 70,56 50,30 Z"
+            />
+            <path
+              class="mono-pliegue"
+              d="M50,30 C36,17 20,17 17,28 M50,30 C64,17 80,17 83,28"
+            />
+            <ellipse class="mono-cinta" cx="50" cy="30" rx="7" ry="8.5" />
+          </svg>
+        </button>
+        <p class="cantina-hint">{{puertas.instruccion}}</p>
       </div>
 
       <main class="content hidden" id="invitationContent">
         <!-- 2. HOME -->
         <section class="section-home">
-          <img class="home-img" src="{{portada.foto}}" alt="{{portada.fotoAlt}}" />
+          <!-- Texto en curva con las letras grandes de fondo -->
+          <div class="home-bienvenida">
+            <span class="home-xv" aria-hidden="true">
+              {{portada.letrasFondo}}
+            </span>
+            <svg
+              class="home-arco"
+              viewBox="0 0 360 100"
+              role="img"
+              aria-label="{{portada.bienvenida}}"
+            >
+              <path
+                id="arcoBienvenida"
+                d="M 14 96 Q 180 0 346 96"
+                fill="none"
+              />
+              <text text-anchor="middle">
+                <textPath href="#arcoBienvenida" startOffset="50%">
+                  {{portada.bienvenida}}
+                </textPath>
+              </text>
+            </svg>
+          </div>
+          <img
+            class="home-img"
+            src="{{portada.foto}}"
+            alt="{{portada.fotoAlt}}"
+          />
           <div class="home-title">
             <p class="home-evento">{{portada.evento}}</p>
-            <h1>{{portada.nombre}}</h1>
+            <h1 class="home-nombre">{{portada.nombre}}</h1>
           </div>
         </section>
 
         <!-- 3. MÚSICA -->
         {{#musica}}
         <section class="section-music">
-          <div class="music-card">
-            <div class="song-title">{{musica.cancion}}</div>
-            <div class="artist-name">{{musica.artista}}</div>
-            <button class="play-button" id="playPauseBtn" aria-label="{{musica.botonAria}}">▶</button>
-            <div class="progress-container">
-              <div class="progress" id="progressBar"></div>
-            </div>
+          <div class="music-card" id="musicCard">
+            <!-- Espectro de audio: las barras las crea main.js y se mueven con CSS -->
+            <div class="espectro" aria-hidden="true"></div>
+            <button
+              class="play-button"
+              id="playPauseBtn"
+              aria-label="{{musica.botonAria}}"
+            >
+              ▶
+            </button>
+            <div class="espectro" aria-hidden="true"></div>
+
             <audio id="music" loop src="{{musica.archivo}}"></audio>
           </div>
         </section>
@@ -63,7 +347,9 @@
           <div class="info-content">
             <b>{{titulo}}</b>
             <ul>
-              {{#nombres}}<li>{{.}}</li>{{/nombres}}
+              {{#nombres}}
+              <li>{{.}}</li>
+              {{/nombres}}
             </ul>
           </div>
           {{/invitacion.familia}}
@@ -80,10 +366,22 @@
         <section class="section-timer">
           <h2>{{cuentaRegresiva.titulo}}</h2>
           <ul class="date-time">
-            <li><div class="time_number" id="dias">0</div><div class="time_txt">{{cuentaRegresiva.dias}}</div></li>
-            <li><div class="time_number" id="horas">0</div><div class="time_txt">{{cuentaRegresiva.horas}}</div></li>
-            <li><div class="time_number" id="minutos">0</div><div class="time_txt">{{cuentaRegresiva.minutos}}</div></li>
-            <li><div class="time_number" id="segundos">0</div><div class="time_txt">{{cuentaRegresiva.segundos}}</div></li>
+            <li>
+              <div class="time_number" id="dias">0</div>
+              <div class="time_txt">{{cuentaRegresiva.dias}}</div>
+            </li>
+            <li>
+              <div class="time_number" id="horas">0</div>
+              <div class="time_txt">{{cuentaRegresiva.horas}}</div>
+            </li>
+            <li>
+              <div class="time_number" id="minutos">0</div>
+              <div class="time_txt">{{cuentaRegresiva.minutos}}</div>
+            </li>
+            <li>
+              <div class="time_number" id="segundos">0</div>
+              <div class="time_txt">{{cuentaRegresiva.segundos}}</div>
+            </li>
           </ul>
         </section>
         {{/cuentaRegresiva}}
@@ -106,7 +404,11 @@
         <section class="section-slider">
           <div class="slider-photo">
             <figure class="slider-track" id="sliderTrack">
-              {{#galeria.fotos}}<img class="img" src="{{foto}}" alt="{{alt}}" />{{/galeria.fotos}}
+              {{#galeria.fotos}}<img
+                class="img"
+                src="{{foto}}"
+                alt="{{alt}}"
+              />{{/galeria.fotos}}
             </figure>
           </div>
         </section>
@@ -119,9 +421,9 @@
             <h2>{{vestimenta.titulo}}</h2>
             <p>{{vestimenta.texto}}</p>
           </div>
-          {{/vestimenta}}
-          {{#vestimenta}}{{#regalos}}<div class="info-separator"></div>{{/regalos}}{{/vestimenta}}
-          {{#regalos}}
+          {{/vestimenta}} {{#vestimenta}}{{#regalos}}
+          <div class="info-separator"></div>
+          {{/regalos}}{{/vestimenta}} {{#regalos}}
           <div class="info-block">
             <h2>{{regalos.titulo}}</h2>
             <p>{{regalos.texto}}</p>
@@ -136,10 +438,27 @@
           <b>{{confirmacion.destacado}}</b>
           <form class="rsvp-form">
             <h3>{{confirmacion.titulo}}</h3>
-            <input name="nombre" type="text" placeholder="{{confirmacion.campoNombre}}" required />
-            <input name="personas" type="number" min="1" placeholder="{{confirmacion.campoAsistentes}}" required />
-            <textarea name="mensaje" rows="3" placeholder="{{confirmacion.campoMensaje}}"></textarea>
-            <button type="submit" class="rsvp-btn">{{confirmacion.boton}}</button>
+            <input
+              name="nombre"
+              type="text"
+              placeholder="{{confirmacion.campoNombre}}"
+              required
+            />
+            <input
+              name="personas"
+              type="number"
+              min="1"
+              placeholder="{{confirmacion.campoAsistentes}}"
+              required
+            />
+            <textarea
+              name="mensaje"
+              rows="3"
+              placeholder="{{confirmacion.campoMensaje}}"
+            ></textarea>
+            <button type="submit" class="rsvp-btn">
+              {{confirmacion.boton}}
+            </button>
           </form>
         </section>
         {{/confirmacion}}

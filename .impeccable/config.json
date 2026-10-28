@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "hero-eyebrow-chip",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-27T21:35:47.716Z",
+        "reason": "Claude: the 'Mis XV años' kicker above the celebrant's name is a standard convention in event invitations, shared by every model in the catalog and present before this session"
+      }
+    ]
+  }
+}

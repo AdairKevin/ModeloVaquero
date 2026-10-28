@@ -22,24 +22,37 @@ const timer =
 const music = document.getElementById("music");
 const playPauseBtn = document.getElementById("playPauseBtn");
 const progressBar = document.getElementById("progressBar");
+const musicCard = document.getElementById("musicCard");
+/* Barras del espectro: 12 de cada lado (cambia el número para más o menos barras) */
+document.querySelectorAll(".espectro").forEach((e) => (e.innerHTML = "<span></span>".repeat(12)));
 if (music) {
   music.volume = 0.5;
   playPauseBtn.addEventListener("click", () => (music.paused ? music.play() : music.pause()));
-  music.addEventListener("play", () => (playPauseBtn.textContent = "⏸"));
-  music.addEventListener("pause", () => (playPauseBtn.textContent = "▶"));
-  music.addEventListener("timeupdate", () => {
-    progressBar.style.width = (music.currentTime / music.duration) * 100 + "%";
+  /* El espectro se mueve solo mientras suena (clase "sonando") */
+  music.addEventListener("play", () => {
+    playPauseBtn.textContent = "⏸";
+    musicCard?.classList.add("sonando");
   });
+  music.addEventListener("pause", () => {
+    playPauseBtn.textContent = "▶";
+    musicCard?.classList.remove("sonando");
+  });
+  if (progressBar) {
+    music.addEventListener("timeupdate", () => {
+      progressBar.style.width = (music.currentTime / music.duration) * 100 + "%";
+    });
+  }
 }
 
-/* Sobre */
-document.getElementById("openEnvelope").addEventListener("click", () => {
-  document.querySelector(".envelope").classList.add("open");
+/* Puertas de cantina: se abren y dejan ver la invitación detrás */
+document.getElementById("abrirPuertas").addEventListener("click", () => {
+  const pantalla = document.getElementById("cantinaScreen");
+  if (pantalla.classList.contains("abiertas")) return;
+  document.getElementById("invitationContent").classList.remove("hidden");
+  document.getElementById("invitationContent").classList.add("entrando");
+  pantalla.classList.add("abiertas");
   if (music) music.play().catch(() => {});
-  setTimeout(() => {
-    document.getElementById("envelopeScreen").classList.add("fade-out");
-    document.getElementById("invitationContent").classList.remove("hidden");
-  }, 1200);
+  setTimeout(() => pantalla.classList.add("fade-out"), 2300);
 });
 
 /* Galería */
