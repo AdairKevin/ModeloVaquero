@@ -25,9 +25,19 @@
     "artista": "Artista",
     "botonAria": "Reproducir música"
   },
-  "dedicatoria": {
-    "texto": "Mensaje de los papás o anfitriones para los invitados.",
-    "firma": "— Firma"
+  "dedicatoria": false,
+  "seBusca": {
+    "titulo": "SE BUSCA",
+    "subtitulo": "Invitados para mis XV años",
+    "letras": "XV",
+    "llamado": "¡Sí, a ti!",
+    "texto": "Te busco para que me acompañes a celebrar una noche llena de música, baile y diversión",
+    "firma": "— Nombre",
+    "recompensaTitulo": "Recompensa",
+    "cantidad": "$1,000,000",
+    "detalle": "en recuerdos, abrazos y bailes para quien llegue a la fiesta",
+    "placaArriba": "SHERIFF",
+    "placa": "XV"
   },
   "invitacion": {
     "titulo": "Te invitamos a celebrar",

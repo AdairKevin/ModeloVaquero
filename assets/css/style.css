@@ -472,9 +472,9 @@
   left: 50%;
   width: 140px;
   aspect-ratio: 664 / 469;
-  margin-bottom: -42px;
+  margin-bottom: -52px;
   transform: translateX(-50%);
-  rotate: 13deg;
+  rotate: 15deg;
   background: url("../img/sombrero.png") center / contain no-repeat;
   pointer-events: none;
 }
@@ -604,6 +604,256 @@
 .section-palabras small {
   display: block;
   margin-top: 12px;
+}
+
+/* ===== SE BUSCA ===== */
+/* Cartel de papel rosa con orillas rotas: una capa rosa fuerte (borde) y encima el papel */
+.cartel {
+  --borde-roto: polygon(
+    2% 1%,
+    8% 0,
+    14% 2.2%,
+    21% 0.4%,
+    27% 1.8%,
+    34% 0,
+    41% 2%,
+    48% 0.6%,
+    55% 2.4%,
+    62% 0.2%,
+    69% 1.6%,
+    76% 0,
+    83% 2%,
+    90% 0.5%,
+    97% 1.8%,
+    100% 5%,
+    98.5% 11%,
+    100% 18%,
+    98% 26%,
+    99.6% 34%,
+    98.2% 43%,
+    100% 52%,
+    98.4% 61%,
+    99.8% 70%,
+    98% 79%,
+    100% 88%,
+    98.6% 95%,
+    96% 100%,
+    89% 98.4%,
+    82% 100%,
+    75% 98%,
+    68% 99.6%,
+    60% 98.2%,
+    52% 100%,
+    45% 98.4%,
+    38% 99.8%,
+    30% 98%,
+    23% 100%,
+    16% 98.6%,
+    9% 99.8%,
+    3% 98.4%,
+    0 94%,
+    1.6% 86%,
+    0 78%,
+    1.8% 69%,
+    0.2% 60%,
+    1.6% 51%,
+    0 42%,
+    1.8% 33%,
+    0.2% 24%,
+    1.6% 15%,
+    0 7%
+  );
+  position: relative;
+  width: min(88%, 360px);
+  margin: 44px auto 0;
+  padding: 5px;
+  rotate: -1.5deg;
+  filter: drop-shadow(0 8px 14px rgba(59, 36, 22, 0.22));
+}
+.cartel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  clip-path: var(--borde-roto);
+  background: var(--color-primary);
+}
+/* Clavo de latón que sostiene el cartel */
+.cartel::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  transform: translateX(-50%);
+  border: 1.5px solid var(--color-secondary);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #f3dcae, var(--laton));
+}
+.cartel-papel {
+  position: relative;
+  padding: 34px 22px 30px;
+  clip-path: var(--borde-roto);
+  background: color-mix(in srgb, var(--color-accent) 38%, var(--color-card));
+}
+.cartel-titulo {
+  font-size: clamp(2.3rem, 12vw, 3.1rem);
+  line-height: 1;
+  letter-spacing: 2px;
+  color: var(--color-primary);
+  text-shadow: 2px 2px 0 var(--color-accent);
+}
+.cartel-subtitulo {
+  margin-top: 6px;
+  font-family: var(--font-title);
+  font-size: 1rem;
+  color: var(--color-primary);
+}
+/* Círculo rosa dentro de un recuadro, con estrellas doradas en las esquinas */
+.cartel-marco {
+  position: relative;
+  margin: 18px 0 16px;
+  padding: 16px;
+  border: 3px solid var(--color-primary);
+  background: color-mix(in srgb, var(--color-accent) 70%, var(--color-card));
+}
+/* Dibujo: el sombrero queda ladeado encima de las letras XV */
+.cartel-dibujo {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  padding-top: 26%;
+  border: 3px solid var(--color-card);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 45%,
+    var(--color-card),
+    color-mix(in srgb, var(--color-accent) 55%, var(--color-card))
+  );
+}
+.cartel-dibujo::before {
+  content: "";
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  width: 66%;
+  aspect-ratio: 664 / 469;
+  transform: translateX(-50%);
+  rotate: -10deg;
+  background: url("../img/sombrero.png") center / contain no-repeat;
+}
+.cartel-dibujo span {
+  font-family: var(--font-title);
+  font-size: clamp(4.5rem, 24vw, 6.5rem);
+  line-height: 1;
+  color: var(--color-primary);
+  text-shadow: 3px 3px 0 var(--color-accent);
+}
+.cartel-estrella {
+  position: absolute;
+  font-size: 1.3rem;
+  line-height: 1;
+  color: #f6d77c;
+  text-shadow:
+    0 0 1px var(--color-secondary),
+    1px 1px 0 var(--color-secondary);
+}
+.e1 {
+  top: 4px;
+  left: 6px;
+}
+.e2 {
+  top: 4px;
+  right: 6px;
+}
+.e3 {
+  bottom: 4px;
+  left: 6px;
+}
+.e4 {
+  bottom: 4px;
+  right: 6px;
+}
+.cartel-llamado {
+  font-family: var(--font-title);
+  font-size: 1.7rem;
+  line-height: 1.1;
+  color: var(--color-secondary);
+}
+.cartel-texto {
+  margin: 10px auto 0;
+  max-width: 28ch;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.cartel-firma {
+  margin-top: 8px;
+  font-family: var(--font-title);
+  font-size: 1.05rem;
+  color: var(--color-primary);
+}
+/* Recompensa grande, como en los carteles del viejo oeste */
+.cartel-recompensa {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 2px dashed var(--color-primary);
+  font-family: var(--font-title);
+  font-size: 1.35rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+.cartel-cantidad {
+  font-family: var(--font-title);
+  font-size: clamp(2rem, 10vw, 2.6rem);
+  line-height: 1.1;
+  color: var(--color-primary);
+  text-shadow: 2px 2px 0 var(--color-accent);
+}
+.cartel-detalle {
+  margin-top: 4px;
+  font-size: 0.85rem;
+}
+
+/* Placa de sheriff rosa en la esquina de arriba */
+.placa-sheriff {
+  position: absolute;
+  top: -46px;
+  right: -20px;
+  z-index: 1;
+  width: 88px;
+  rotate: 14deg;
+  overflow: visible;
+}
+.placa-puntas,
+.placa-estrella {
+  fill: var(--color-accent);
+  stroke: var(--color-primary);
+  stroke-width: 4;
+  stroke-linejoin: round;
+}
+.placa-costura {
+  fill: none;
+  stroke: var(--color-primary);
+  stroke-width: 2;
+  stroke-dasharray: 4 4;
+}
+.placa-arriba,
+.placa-texto,
+.placa-abajo {
+  font-family: var(--font-title);
+  fill: var(--color-primary);
+}
+.placa-arriba {
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+.placa-texto {
+  font-size: 42px;
+}
+.placa-abajo {
+  font-size: 14px;
 }
 
 /* ===== INFO ===== */

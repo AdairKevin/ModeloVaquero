@@ -339,6 +339,64 @@
         </section>
         {{/dedicatoria}}
 
+        <!-- SE BUSCA: cartel de invitación con placa de sheriff -->
+        {{#seBusca}}
+        <section class="section-sebusca">
+          <div class="cartel">
+            <div class="cartel-papel">
+              <h2 class="cartel-titulo">{{seBusca.titulo}}</h2>
+              <p class="cartel-subtitulo">{{seBusca.subtitulo}}</p>
+              <div class="cartel-marco">
+                <!-- Dibujo: sombrero vaquero sobre las letras XV -->
+                <div class="cartel-dibujo" aria-hidden="true">
+                  <span>{{seBusca.letras}}</span>
+                </div>
+                <span class="cartel-estrella e1" aria-hidden="true">★</span>
+                <span class="cartel-estrella e2" aria-hidden="true">★</span>
+                <span class="cartel-estrella e3" aria-hidden="true">★</span>
+                <span class="cartel-estrella e4" aria-hidden="true">★</span>
+              </div>
+              <p class="cartel-llamado">{{seBusca.llamado}}</p>
+              <p class="cartel-texto">{{seBusca.texto}}</p>
+              <p class="cartel-firma">{{seBusca.firma}}</p>
+              <p class="cartel-recompensa">{{seBusca.recompensaTitulo}}</p>
+              <p class="cartel-cantidad">{{seBusca.cantidad}}</p>
+              <p class="cartel-detalle">{{seBusca.detalle}}</p>
+            </div>
+
+            <!-- Placa de sheriff clavada en la esquina del cartel -->
+            <svg class="placa-sheriff" viewBox="0 0 200 200" aria-hidden="true">
+              <g class="placa-puntas">
+                <circle cx="100" cy="14" r="10" />
+                <circle cx="174.5" cy="57" r="10" />
+                <circle cx="174.5" cy="143" r="10" />
+                <circle cx="100" cy="186" r="10" />
+                <circle cx="25.5" cy="143" r="10" />
+                <circle cx="25.5" cy="57" r="10" />
+              </g>
+              <polygon
+                class="placa-estrella"
+                points="100,20 123,60.2 169.3,60 146,100 169.3,140 123,139.8 100,180 77,139.8 30.7,140 54,100 30.7,60 77,60.2"
+              />
+              <polygon
+                class="placa-costura"
+                transform="translate(100 100) scale(0.84) translate(-100 -100)"
+                points="100,20 123,60.2 169.3,60 146,100 169.3,140 123,139.8 100,180 77,139.8 30.7,140 54,100 30.7,60 77,60.2"
+              />
+              <text class="placa-arriba" x="100" y="80" text-anchor="middle">
+                {{seBusca.placaArriba}}
+              </text>
+              <text class="placa-texto" x="100" y="120" text-anchor="middle">
+                {{seBusca.placa}}
+              </text>
+              <text class="placa-abajo" x="100" y="138" text-anchor="middle">
+                ★
+              </text>
+            </svg>
+          </div>
+        </section>
+        {{/seBusca}}
+
         <!-- 5. INFO FORMAL -->
         {{#invitacion}}
         <section class="section-info">
