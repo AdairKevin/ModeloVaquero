@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -6 212 212">
+  <!-- Estrella de sheriff tipo sticker: orilla blanca, relleno rosa palo y línea fucsia -->
+  <g stroke-linejoin="round">
+    <g fill="#ffffff" stroke="#ffffff" stroke-width="16">
+      <circle cx="100" cy="14" r="10" />
+      <circle cx="174.5" cy="57" r="10" />
+      <circle cx="174.5" cy="143" r="10" />
+      <circle cx="100" cy="186" r="10" />
+      <circle cx="25.5" cy="143" r="10" />
+      <circle cx="25.5" cy="57" r="10" />
+      <polygon points="100,20 123,60.2 169.3,60 146,100 169.3,140 123,139.8 100,180 77,139.8 30.7,140 54,100 30.7,60 77,60.2" />
+    </g>
+    <g fill="#fde4ee" stroke="#d6297f" stroke-width="4">
+      <circle cx="100" cy="14" r="10" />
+      <circle cx="174.5" cy="57" r="10" />
+      <circle cx="174.5" cy="143" r="10" />
+      <circle cx="100" cy="186" r="10" />
+      <circle cx="25.5" cy="143" r="10" />
+      <circle cx="25.5" cy="57" r="10" />
+      <polygon points="100,20 123,60.2 169.3,60 146,100 169.3,140 123,139.8 100,180 77,139.8 30.7,140 54,100 30.7,60 77,60.2" />
+    </g>
+  </g>
+  <polygon
+    fill="none"
+    stroke="#d6297f"
+    stroke-width="2"
+    stroke-dasharray="5 4"
+    transform="translate(100 100) scale(0.8) translate(-100 -100)"
+    points="100,20 123,60.2 169.3,60 146,100 169.3,140 123,139.8 100,180 77,139.8 30.7,140 54,100 30.7,60 77,60.2"
+  />
+  <polygon
+    fill="#d6297f"
+    transform="translate(100 100) scale(1.5)"
+    points="0,-16 4.1,-5.7 15.2,-4.9 6.7,2.2 9.4,12.9 0,7 -9.4,12.9 -6.7,2.2 -15.2,-4.9 -4.1,-5.7"
+  />
+</svg>

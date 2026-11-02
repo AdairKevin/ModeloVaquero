@@ -13,11 +13,18 @@
   <body>
     <!-- Todos los textos se editan en contenido.json; aquí solo van variables -->
     <template id="plantilla">
-      <!-- 1. PUERTAS DE CANTINA DE BIENVENIDA (cartel western: madera rústica + detalles rosa) -->
+      <!-- 1. PUERTAS DE CANTINA DE BIENVENIDA (madera coñac, detalles rosa y cromo) -->
       <div class="cantina-screen" id="cantinaScreen">
         <!-- Dibujos reutilizables: puerta, voluta, estrella y herradura -->
         <svg class="cantina-defs" aria-hidden="true">
           <defs>
+            <linearGradient id="cromoPuerta" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffffff" />
+              <stop offset="0.3" stop-color="#c4c7cf" />
+              <stop offset="0.5" stop-color="#f7f8fa" />
+              <stop offset="0.72" stop-color="#9da1ab" />
+              <stop offset="1" stop-color="#e9eaee" />
+            </linearGradient>
             <path
               id="voluta"
               d="M100,98 L95,106 L100,114 L105,106 Z M100,114 C92,104 80,102 73,109 C66,116 72,126 80,123 C86,121 85,113 79,114 M100,114 C108,104 120,102 127,109 C134,116 128,126 120,123 C114,121 115,113 121,114 M100,114 C94,124 82,130 66,126 M100,114 C106,124 118,130 134,126"
@@ -167,7 +174,7 @@
                 rx="8"
               />
               <use href="#voluta" class="voluta" y="273" />
-              <!-- bisagras de latón -->
+              <!-- bisagras cromadas -->
               <rect
                 class="laton"
                 x="-4"
@@ -202,11 +209,11 @@
           </symbol>
         </svg>
 
-        <!-- Estrellas rosas en las esquinas del cartel -->
-        <span class="esquina q1" aria-hidden="true">★</span>
-        <span class="esquina q2" aria-hidden="true">★</span>
-        <span class="esquina q3" aria-hidden="true">★</span>
-        <span class="esquina q4" aria-hidden="true">★</span>
+        <!-- Destellos cromados en las esquinas del cartel -->
+        <span class="esquina q1" aria-hidden="true">✦</span>
+        <span class="esquina q2" aria-hidden="true">✦</span>
+        <span class="esquina q3" aria-hidden="true">✦</span>
+        <span class="esquina q4" aria-hidden="true">✦</span>
 
         <!-- Letrero en arco -->
         <div class="cantina-letrero">
@@ -218,7 +225,7 @@
               </textPath>
             </text>
           </svg>
-          <p class="cantina-adorno" aria-hidden="true">✦ ★ ✦</p>
+          <p class="cantina-adorno" aria-hidden="true">✦</p>
         </div>
 
         <button
@@ -305,9 +312,12 @@
             src="{{portada.foto}}"
             alt="{{portada.fotoAlt}}"
           />
-          <div class="home-title">
-            <p class="home-evento">{{portada.evento}}</p>
-            <h1 class="home-nombre">{{portada.nombre}}</h1>
+          <!-- Marco tipo sticker con esquinas recortadas (marco-sombra le da la sombra) -->
+          <div class="marco-sombra">
+            <div class="home-title marco">
+              <p class="home-evento">{{portada.evento}}</p>
+              <h1 class="home-nombre">{{portada.nombre}}</h1>
+            </div>
           </div>
         </section>
 
@@ -328,6 +338,7 @@
 
             <audio id="music" loop src="{{musica.archivo}}"></audio>
           </div>
+          <p class="music-hint">{{musica.instruccion}}</p>
         </section>
         {{/musica}}
 
@@ -347,7 +358,7 @@
               <h2 class="cartel-titulo">{{seBusca.titulo}}</h2>
               <p class="cartel-subtitulo">{{seBusca.subtitulo}}</p>
               <div class="cartel-marco">
-                <!-- Dibujo: sombrero vaquero sobre las letras XV -->
+                <!-- Dibujo: letras XV grandes -->
                 <div class="cartel-dibujo" aria-hidden="true">
                   <span>{{seBusca.letras}}</span>
                 </div>
@@ -364,7 +375,7 @@
               <p class="cartel-detalle">{{seBusca.detalle}}</p>
             </div>
 
-            <!-- Placa de sheriff clavada en la esquina del cartel -->
+            <!-- Placa de sheriff rosa clavada en la esquina del cartel -->
             <svg class="placa-sheriff" viewBox="0 0 200 200" aria-hidden="true">
               <g class="placa-puntas">
                 <circle cx="100" cy="14" r="10" />
@@ -400,17 +411,24 @@
         <!-- 5. INFO FORMAL -->
         {{#invitacion}}
         <section class="section-info">
-          <h2>{{invitacion.titulo}}</h2>
-          {{#invitacion.familia}}
-          <div class="info-content">
-            <b>{{titulo}}</b>
-            <ul>
-              {{#nombres}}
-              <li>{{.}}</li>
-              {{/nombres}}
-            </ul>
+          <!-- Familia dentro de un marco con moño arriba -->
+          <div class="marco-sombra marco-familia">
+            <span class="marco-mono" aria-hidden="true"></span>
+            <div class="marco">
+              <h2>{{invitacion.titulo}}</h2>
+              {{#invitacion.familia}}
+              <div class="info-content">
+                <b>{{titulo}}</b>
+                <ul>
+                  {{#nombres}}
+                  <li>{{.}}</li>
+                  {{/nombres}}
+                </ul>
+              </div>
+              {{/invitacion.familia}}
+            </div>
           </div>
-          {{/invitacion.familia}}
+          <!-- Fecha dentro de un corazón -->
           <div class="date-box">
             <span>{{invitacion.fecha.dia}}</span>
             <strong>{{invitacion.fecha.fecha}}</strong>

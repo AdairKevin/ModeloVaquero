@@ -11,6 +11,33 @@
         ],
         "createdAt": "2026-10-27T21:35:47.716Z",
         "reason": "Claude: the 'Mis XV años' kicker above the celebrant's name is a standard convention in event invitations, shared by every model in the catalog and present before this session"
+      },
+      {
+        "rule": "kicker-above-heading",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-30T14:31:44.000Z",
+        "reason": "Claude: \"Mis XV años\" above the name is the invitation convention the user explicitly asked to keep (with its stars)"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-30T14:31:44.000Z",
+        "reason": "Claude: cream background comes from the user-supplied cowgirl reference image the user asked to follow"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-30T14:31:44.000Z",
+        "reason": "Claude: cartel-dibujo is a circle with centered XV and slider-photo is a white instant-photo frame around full-bleed images; flush content is intended"
       }
     ]
   }

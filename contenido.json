@@ -23,7 +23,8 @@
     "archivo": "./assets/music/cancion.mp3",
     "cancion": "Nombre de la canción",
     "artista": "Artista",
-    "botonAria": "Reproducir música"
+    "botonAria": "Reproducir música",
+    "instruccion": "Toca el disco para reproducir"
   },
   "dedicatoria": false,
   "seBusca": {

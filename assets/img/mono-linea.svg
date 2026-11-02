@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -4 108 70">
+  <!-- Moño de línea fucsia (adorno de los marcos) -->
+  <g fill="#fde4ee" stroke="#d6297f" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M46,32 L30,60 L39,57 L48,37 Z M54,32 L70,60 L61,57 L52,37 Z" />
+    <path d="M50,30 C30,4 4,10 10,30 C4,50 30,56 50,30 Z M50,30 C70,4 96,10 90,30 C96,50 70,56 50,30 Z" />
+    <path fill="none" stroke-width="1.5" d="M50,30 C36,17 20,17 17,28 M50,30 C64,17 80,17 83,28" />
+    <ellipse cx="50" cy="30" rx="7" ry="8.5" />
+  </g>
+</svg>

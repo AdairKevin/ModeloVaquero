@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-12 -12 224 204">
+  <!-- Corazón tipo sticker para la fecha: orilla blanca, línea fucsia y línea rosa punteada -->
+  <path
+    fill="#ffffff"
+    stroke="#ffffff"
+    stroke-width="20"
+    stroke-linejoin="round"
+    d="M100,172 C40,127 6,94 6,54 C6,26 28,6 54,6 C76,6 92,18 100,34 C108,18 124,6 146,6 C172,6 194,26 194,54 C194,94 160,127 100,172 Z"
+  />
+  <path
+    fill="#ffffff"
+    stroke="#d6297f"
+    stroke-width="3"
+    d="M100,172 C40,127 6,94 6,54 C6,26 28,6 54,6 C76,6 92,18 100,34 C108,18 124,6 146,6 C172,6 194,26 194,54 C194,94 160,127 100,172 Z"
+  />
+  <path
+    fill="none"
+    stroke="#f6b8d1"
+    stroke-width="2"
+    stroke-dasharray="4 5"
+    transform="translate(100 88) scale(0.9) translate(-100 -88)"
+    d="M100,172 C40,127 6,94 6,54 C6,26 28,6 54,6 C76,6 92,18 100,34 C108,18 124,6 146,6 C172,6 194,26 194,54 C194,94 160,127 100,172 Z"
+  />
+</svg>

@@ -1,10 +1,20 @@
 /* Tablets y escritorio: la invitación se mantiene como columna centrada */
 @media (min-width: 768px) {
   body {
-    background: var(--color-secondary);
+    background:
+      radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.35) 0 1px,
+          transparent 1.5px
+        )
+        0 0 / 23px 23px,
+      radial-gradient(circle, rgba(255, 190, 220, 0.3) 0 1px, transparent 1.5px)
+        11px 9px / 31px 31px,
+      radial-gradient(ellipse at 50% 30%, #b8236c, #7a1747 70%);
+    background-attachment: fixed;
   }
   .content {
     background: var(--color-bg);
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
   }
 }
