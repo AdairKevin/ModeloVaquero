@@ -532,8 +532,8 @@
   --desvanecido: linear-gradient(
     to bottom,
     transparent 0%,
-    black 30%,
-    black 80%,
+    black 20%,
+    black 100%,
     transparent 100%
   );
   -webkit-mask-image: var(--desvanecido);
@@ -787,11 +787,13 @@
     0 7%
   );
   position: relative;
-  width: min(88%, 360px);
+  width: min(90%, 360px);
   margin: 44px auto 0;
   padding: 2px;
   rotate: -1.5deg;
   filter: drop-shadow(0 10px 18px rgba(58, 42, 36, 0.14));
+  margin-top: 48px;
+  margin-bottom: 70px;
 }
 .cartel::before {
   content: "";
@@ -968,6 +970,205 @@
 }
 
 /* ===== INFO ===== */
+
+/* .rancho envuelve la info y la cuenta regresiva con un solo fondo de piel,
+   así no se nota el cambio de sección. La piel va en ::before para que el
+   desvanecido solo afecte al fondo y no al contenido */
+.rancho {
+  --grabado: #180c05; /* café de piel quemada */
+  --grabado-luz: rgba(255, 246, 232, 0.75);
+  /* "latón" en oro rosa: el toque cowgirl del reloj */
+  --laton-claro: #fde0e6;
+  --laton: #e8a3b5;
+  --laton-oscuro: #9c4a63;
+  position: relative;
+  isolation: isolate;
+  margin-bottom: 48px;
+}
+.rancho::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("../img/texturaPiel.jpg") center / cover no-repeat;
+  /* arriba empieza de golpe bajo el tronco; abajo se funde con el crema */
+}
+.section-info {
+  padding-top: 0;
+  padding-bottom: 16px;
+}
+
+/* Tronco de orilla a orilla que marca la división con la sección de arriba.
+   Corteza con vetas horizontales, luz arriba y sombra abajo para que se vea redondo */
+.tronco {
+  --alto-tronco: 36px;
+  position: relative;
+  z-index: 2;
+  height: var(--alto-tronco);
+  margin: 0 -20px; /* se sale del padding de la sección */
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 225, 190, 0.35) 0,
+      transparent 30%,
+      transparent 60%,
+      rgba(0, 0, 0, 0.55) 100%
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(30, 16, 8, 0.35) 0 2px,
+      transparent 2px 7px
+    ),
+    url("../img/texturaMadera.jpg") center / 100% auto,
+    var(--madera-oscura);
+  box-shadow:
+    0 8px 14px rgba(40, 22, 12, 0.55),
+    0 2px 0 rgba(0, 0, 0, 0.35);
+}
+
+/* Letrero de madera colgando del tronco: las sogas salen de detrás de él */
+.letrero {
+  --alto-soga: 70px;
+  position: relative;
+  z-index: 1;
+  width: min(88%, 330px);
+  margin: -18px auto 0; /* medio tronco hacia arriba para que las sogas salgan de detrás */
+  padding-top: var(--alto-soga);
+  transform-origin: 50% 0;
+  animation: letrero-mecer 5s ease-in-out infinite;
+}
+.letrero::before,
+.letrero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 6px;
+  height: calc(var(--alto-soga) + 16px);
+  border-radius: 3px;
+  /* soga trenzada en rosa chicle y fucsia */
+  background: repeating-linear-gradient(
+    -50deg,
+    var(--color-accent) 0 3px,
+    var(--color-primary) 3px 5px
+  );
+  box-shadow: 1px 2px 3px rgba(58, 34, 20, 0.35);
+}
+.letrero::before {
+  left: 18%;
+}
+.letrero::after {
+  right: 18%;
+}
+/* .section-info delante para ganarle a la regla compartida de los h2 */
+.section-info .letrero-tabla {
+  position: relative;
+  margin: 0;
+  padding: 26px 22px 22px;
+  font-size: 1.65rem;
+  line-height: 1.15;
+  color: var(--color-accent);
+  text-shadow:
+    0 2px 0 var(--color-primary),
+    0 4px 0 var(--madera-oscura),
+    0 0 10px rgba(0, 0, 0, 0.45);
+  /* costura rosa pintada por dentro de la orilla */
+  outline: 2px dashed color-mix(in srgb, var(--color-accent) 85%, transparent);
+  outline-offset: -9px;
+  /* madera con veta horizontal y una junta entre dos tablas */
+  background:
+    linear-gradient(
+      to bottom,
+      transparent calc(50% - 1px),
+      rgba(30, 16, 8, 0.55) calc(50% - 1px) calc(50% + 1px),
+      transparent calc(50% + 1px)
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.07) 0 1px,
+      transparent 1px 6px
+    ),
+    url("../img/texturaMadera.jpg") center / cover,
+    var(--madera-media);
+  border: 3px solid var(--madera-oscura);
+  border-radius: 8px 10px 7px 9px;
+  box-shadow:
+    inset 0 0 0 2px rgba(255, 230, 200, 0.12),
+    inset 0 0 26px rgba(0, 0, 0, 0.5),
+    0 14px 22px rgba(58, 34, 20, 0.4);
+}
+/* Clavos de pedrería fucsia donde se amarran las sogas */
+.letrero-tabla::before,
+.letrero-tabla::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  z-index: 2;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 35% 30%,
+    #fff 0 12%,
+    var(--color-accent) 30%,
+    var(--color-primary) 70%,
+    var(--color-secondary) 100%
+  );
+  box-shadow:
+    0 0 0 1.5px #fff,
+    0 2px 3px rgba(0, 0, 0, 0.5);
+}
+.letrero-tabla::before {
+  left: calc(18% - 3px);
+}
+.letrero-tabla::after {
+  right: calc(18% - 3px);
+}
+/* Moños rosas amarrados en cada soga, justo arriba de los clavos */
+.letrero-mono {
+  position: absolute;
+  top: calc(var(--alto-soga) - 26px);
+  z-index: 3;
+  width: 40px;
+  aspect-ratio: 108 / 70;
+  translate: -50% 0;
+  background: url("../img/mono-linea.svg") center / contain no-repeat;
+  filter: drop-shadow(0 2px 2px rgba(58, 34, 20, 0.4));
+}
+.letrero-mono.izq {
+  left: calc(18% + 3px);
+  rotate: -10deg;
+}
+.letrero-mono.der {
+  left: calc(82% - 3px);
+  rotate: 10deg;
+}
+/* Sombrero rosa colgado en la esquina del letrero */
+.letrero-sombrero {
+  position: absolute;
+  right: -22px;
+  bottom: -22px;
+  z-index: 3;
+  width: 84px;
+  rotate: 16deg;
+  filter: drop-shadow(0 6px 6px rgba(58, 34, 20, 0.45));
+  pointer-events: none;
+}
+@keyframes letrero-mecer {
+  0%,
+  100% {
+    rotate: -1.6deg;
+  }
+  50% {
+    rotate: 1.6deg;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .letrero {
+    animation: none;
+  }
+}
+
 .section-info h2,
 .section-timer h2,
 .info-block h2,
@@ -976,88 +1177,257 @@
   line-height: 1.15;
   margin-bottom: 18px;
 }
-/* Marco de la familia con un moño arriba */
-.marco-familia {
-  margin-top: 18px;
-}
-.marco-familia .marco {
-  padding: 50px 26px 40px;
-}
-.marco-mono {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  z-index: 1;
-  width: 92px;
-  aspect-ratio: 108 / 70;
-  transform: translate(-50%, -55%);
-  background: url("../img/mono-linea.svg") center / contain no-repeat;
+
+/* Texto "grabado" en la piel: café quemado con luz abajo y sombra arriba.
+   Una mancha clara y suave detrás ayuda a leerlo sin poner marco */
+.grabado {
+  position: relative;
+  margin: 40px auto 0;
+  padding: 36px 18px 40px;
+  color: var(--grabado);
+  text-shadow:
+    0 1px 0 var(--grabado-luz),
+    0 -1px 1px rgba(40, 20, 10, 0.4);
+  background: radial-gradient(
+    ellipse 70% 52% at 50% 50%,
+    rgba(253, 246, 236, 0.82) 30%,
+    rgba(253, 246, 236, 0.45) 62%,
+    transparent 100%
+  );
 }
 .info-content {
-  margin-bottom: 18px;
-}
-.info-content:last-child {
-  margin-bottom: 0;
+  margin-bottom: 22px;
 }
 .info-content b {
   display: block;
-  margin-bottom: 6px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.25em;
+  margin-bottom: 4px;
+  font-family: var(--font-title);
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-primary);
+  color: color-mix(in srgb, var(--color-secondary) 75%, var(--grabado));
 }
 .info-content ul {
   list-style: none;
   font-family: var(--font-serif);
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   line-height: 1.5;
-  color: var(--color-secondary);
 }
-/* Fecha dentro de un corazón tipo sticker */
-.date-box {
+/* Línea quemada con estrella entre la familia y la fecha */
+.grabado-separador {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 12px;
+  margin: 6px auto 18px;
+  font-size: 1.1rem;
+  color: var(--color-secondary);
+}
+.grabado-separador::before,
+.grabado-separador::after {
+  content: "";
+  width: 70px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  opacity: 0.55;
+}
+/* Fecha como marca de herrar: dos líneas quemadas arriba y abajo */
+.date-box {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
   gap: 2px;
-  width: 250px;
-  aspect-ratio: 224 / 204;
-  margin: 32px auto 0;
-  padding: 0 40px 44px;
-  background: url("../img/corazon.svg") center / contain no-repeat;
-  filter: drop-shadow(0 8px 12px rgba(122, 35, 72, 0.16));
+  padding: 10px 18px;
+  border-block: 3px double color-mix(in srgb, var(--grabado) 70%, transparent);
 }
 .date-box span {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--color-secondary);
 }
 .date-box strong {
   font-family: var(--font-title);
   font-weight: 400;
-  font-size: 1.35rem;
+  font-size: 1.75rem;
   line-height: 1.2;
-  color: var(--color-primary);
+  color: var(--color-secondary);
 }
 
-/* ===== TIMER ===== */
-/* Una sola píldora con los números separados por dos puntos */
+/* ===== TIMER: reloj de cantina horizontal ===== */
+.section-timer {
+  padding-top: 24px;
+}
+.section-timer h2 {
+  color: var(--grabado);
+  text-shadow:
+    0 1px 0 var(--grabado-luz),
+    0 -1px 1px rgba(40, 20, 10, 0.4);
+}
+/* Ocupa todo el ancho: se sale del padding de la sección (20px por lado) */
+.reloj {
+  --alto: 76px; /* alto del reloj: ajústalo entre 50 y 80px */
+  position: relative;
+  margin: 24px -20px 0;
+}
+/* Barra de madera con las puntas redondas */
+.reloj-caja {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: var(--alto);
+  padding: 0 12px 0 8px;
+  border: 3px solid var(--madera-oscura);
+  /* costura rosa como la del letrero */
+  outline: 2px dashed color-mix(in srgb, var(--color-accent) 85%, transparent);
+  outline-offset: -7px;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.07) 0 1px,
+      transparent 1px 6px
+    ),
+    url("../img/texturaMadera.jpg") center / cover,
+    var(--madera-media);
+  box-shadow:
+    inset 0 0 0 3px rgba(255, 220, 180, 0.1),
+    inset 0 0 18px rgba(0, 0, 0, 0.55),
+    0 12px 20px rgba(58, 34, 20, 0.45);
+}
+/* Carátula redonda rosa palo con bisel de oro rosa */
+.reloj-caratula {
+  position: relative;
+  flex: none;
+  height: calc(var(--alto) - 16px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0 45%, var(--rosa-palo) 100%);
+  box-shadow:
+    0 0 0 3px var(--laton),
+    0 0 0 4px var(--laton-oscuro),
+    0 2px 6px 4px rgba(0, 0, 0, 0.35),
+    inset 0 0 8px rgba(90, 60, 20, 0.35);
+}
+/* Rayitas de las 12 horas */
+.reloj-caratula::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: repeating-conic-gradient(
+    from -2deg,
+    var(--color-secondary) 0 4deg,
+    transparent 4deg 30deg
+  );
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 6px),
+    #000 calc(100% - 6px)
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 6px),
+    #000 calc(100% - 6px)
+  );
+}
+/* Botón central de latón */
+.reloj-caratula::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 8px;
+  height: 8px;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 35% 35%,
+    var(--laton-claro),
+    var(--laton-oscuro)
+  );
+}
+/* Manecillas: main.js pone --ahora para que arranquen en la hora real */
+.manecilla {
+  position: absolute;
+  bottom: 50%;
+  left: calc(50% - var(--w) / 2);
+  width: var(--w);
+  border-radius: var(--w) var(--w) 1px 1px;
+  background: var(--color-secondary);
+  transform-origin: 50% 100%;
+  animation: manecilla-girar linear infinite;
+  animation-delay: var(--ahora, 0s);
+}
+.horaria {
+  --w: 4px;
+  height: 24%;
+  animation-duration: 43200s;
+}
+.minutero {
+  --w: 3px;
+  height: 34%;
+  animation-duration: 3600s;
+}
+.segundero {
+  --w: 1.5px;
+  height: 38%;
+  background: var(--color-primary);
+  animation-duration: 60s;
+  animation-timing-function: steps(60);
+}
+/* Corazón fucsia en lugar del 12 */
+.reloj-corazon {
+  position: absolute;
+  top: 19%;
+  left: 50%;
+  translate: -50% 0;
+  font-size: 0.6rem;
+  line-height: 1;
+  color: var(--color-primary);
+}
+/* Moño rosa amarrado arriba de la carátula */
+.reloj-mono {
+  position: absolute;
+  top: -14px;
+  left: calc(8px + (var(--alto) - 16px) / 2);
+  z-index: 2;
+  width: 44px;
+  aspect-ratio: 108 / 70;
+  translate: -50% 0;
+  rotate: -8deg;
+  background: url("../img/mono-linea.svg") center / contain no-repeat;
+  filter: drop-shadow(0 2px 3px rgba(58, 34, 20, 0.45));
+}
+@keyframes manecilla-girar {
+  to {
+    rotate: 360deg;
+  }
+}
+/* Placa de latón con la cuenta regresiva */
 .date-time {
+  flex: 1;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  align-items: center;
   list-style: none;
-  margin-top: 8px;
-  padding: 16px 12px 12px;
-  border: 2px solid var(--color-primary);
-  border-radius: 999px;
-  background: linear-gradient(180deg, var(--color-card), var(--rosa-palo));
+  height: calc(var(--alto) - 20px);
+  padding: 0 4px;
+  border: 2px solid var(--laton-oscuro);
+  border-radius: 6px;
+  background: linear-gradient(
+    180deg,
+    var(--laton-claro),
+    var(--laton) 55%,
+    #a37c32
+  );
   box-shadow:
-    0 0 0 5px var(--color-card),
-    var(--sombra);
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 2px 5px rgba(0, 0, 0, 0.45);
 }
 .date-time li {
   position: relative;
@@ -1065,30 +1435,53 @@
 .date-time li + li::before {
   content: ":";
   position: absolute;
-  top: 2px;
+  top: -2px;
   left: -3px;
-  font-size: 1.8rem;
-  line-height: 1;
-  color: var(--color-accent);
+  font-family: var(--font-title);
+  font-size: 1.3rem;
+  line-height: 1.1;
+  color: var(--laton-oscuro);
 }
 .time_number {
-  font-size: 1.9rem;
-  font-weight: 500;
-  line-height: 1.1;
-  color: var(--color-primary);
+  font-family: var(--font-title);
+  font-size: 1.45rem;
+  line-height: 1.05;
+  color: var(--color-secondary);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 .time_txt {
-  font-size: 0.62rem;
+  font-size: 0.55rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-secondary);
+  color: var(--laton-oscuro);
 }
 
 /* ===== UBICACIONES ===== */
 .section-place {
+  position: relative;
   display: grid;
   gap: 28px;
+}
+/* Estrella de sheriff tipo sticker en la esquina de la primera tarjeta */
+.place-card .deco-estrella {
+  position: absolute;
+  top: -22px;
+  right: -12px;
+  width: 58px;
+  rotate: 14deg;
+  filter: drop-shadow(0 4px 6px rgba(122, 35, 72, 0.25));
+}
+/* Cactus recargado en la esquina de abajo a la izquierda de la última tarjeta */
+.deco-cactus {
+  position: absolute;
+  bottom: -26px;
+  left: 4px;
+  z-index: 1;
+  width: 52px;
+  rotate: -8deg;
+  filter: drop-shadow(0 6px 6px rgba(122, 35, 72, 0.25));
+  pointer-events: none;
 }
 /* Tarjetas como carta de póker: "A ♥" en dos esquinas */
 .place-card {
@@ -1161,7 +1554,19 @@
 /* ===== GALERÍA ===== */
 /* Fotos con orilla blanca como foto instantánea */
 .section-slider {
+  position: relative;
   padding: 8px 24px 24px;
+}
+/* Estrella pegada en la esquina de arriba a la derecha de la foto */
+.section-slider .deco-estrella {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  z-index: 1;
+  width: 62px;
+  rotate: 12deg;
+  filter: drop-shadow(0 4px 6px rgba(122, 35, 72, 0.25));
+  pointer-events: none;
 }
 .slider-photo {
   overflow: hidden;
@@ -1197,6 +1602,25 @@
 .info-separator::before {
   content: "♥";
 }
+/* Sombrero y botas debajo del texto de vestimenta */
+.vestimenta-deco {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 18px;
+}
+.vestimenta-deco img {
+  filter: drop-shadow(0 6px 8px rgba(122, 35, 72, 0.22));
+}
+.deco-sombrero {
+  width: 118px;
+  rotate: -8deg;
+}
+.deco-botas {
+  width: 92px;
+  rotate: 5deg;
+}
 
 /* ===== RSVP ===== */
 .section-message > p {
@@ -1215,11 +1639,21 @@
   text-transform: uppercase;
   color: var(--color-secondary);
 }
+/* La vaca se asoma: el formulario le tapa el cuello */
+.rsvp-vaca {
+  position: relative;
+  z-index: 0;
+  width: 170px;
+  margin: 20px auto -38px;
+  filter: drop-shadow(0 6px 10px rgba(122, 35, 72, 0.2));
+}
 .rsvp-form {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-top: 30px;
+  margin-top: 0;
   padding: 30px 22px;
   border: 2px solid var(--color-primary);
   border-radius: 24px;

@@ -18,6 +18,15 @@ const timer =
     if (d === 0) clearInterval(timer);
   }, 1000);
 
+/* Reloj de cantina: las manecillas arrancan en la hora real
+   (un retraso negativo adelanta cada animación hasta la hora de ahora) */
+const caratula = document.querySelector(".reloj-caratula");
+if (caratula) {
+  const ahora = new Date();
+  const segundos = (ahora.getHours() % 12) * 3600 + ahora.getMinutes() * 60 + ahora.getSeconds();
+  caratula.style.setProperty("--ahora", -segundos + "s");
+}
+
 /* Música */
 const music = document.getElementById("music");
 const playPauseBtn = document.getElementById("playPauseBtn");

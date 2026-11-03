@@ -408,14 +408,22 @@
         </section>
         {{/seBusca}}
 
-        <!-- 5. INFO FORMAL -->
-        {{#invitacion}}
-        <section class="section-info">
-          <!-- Familia dentro de un marco con moño arriba -->
-          <div class="marco-sombra marco-familia">
-            <span class="marco-mono" aria-hidden="true"></span>
-            <div class="marco">
-              <h2>{{invitacion.titulo}}</h2>
+        <!-- 5 y 6. INFO + CUENTA REGRESIVA: un solo fondo de piel de vaca para que fluyan juntas -->
+        <div class="rancho">
+          <!-- 5. INFO FORMAL (grabada en la piel) -->
+          {{#invitacion}}
+          <section class="section-info">
+            <!-- Tronco que divide con la sección de arriba -->
+            <div class="tronco" aria-hidden="true"></div>
+            <!-- Letrero de madera colgando del tronco con dos sogas -->
+            <div class="letrero">
+              <span class="letrero-mono izq" aria-hidden="true"></span>
+              <span class="letrero-mono der" aria-hidden="true"></span>
+              <h2 class="letrero-tabla">{{invitacion.titulo}}</h2>
+              <img class="letrero-sombrero" src="./assets/img/sombrero.png" alt="" />
+            </div>
+
+            <div class="grabado">
               {{#invitacion.familia}}
               <div class="info-content">
                 <b>{{titulo}}</b>
@@ -426,52 +434,71 @@
                 </ul>
               </div>
               {{/invitacion.familia}}
-            </div>
-          </div>
-          <!-- Fecha dentro de un corazón -->
-          <div class="date-box">
-            <span>{{invitacion.fecha.dia}}</span>
-            <strong>{{invitacion.fecha.fecha}}</strong>
-            <span>{{invitacion.fecha.hora}}</span>
-          </div>
-        </section>
-        {{/invitacion}}
 
-        <!-- 6. CUENTA REGRESIVA (la fecha sale de evento.inicio) -->
-        {{#cuentaRegresiva}}
-        <section class="section-timer">
-          <h2>{{cuentaRegresiva.titulo}}</h2>
-          <ul class="date-time">
-            <li>
-              <div class="time_number" id="dias">0</div>
-              <div class="time_txt">{{cuentaRegresiva.dias}}</div>
-            </li>
-            <li>
-              <div class="time_number" id="horas">0</div>
-              <div class="time_txt">{{cuentaRegresiva.horas}}</div>
-            </li>
-            <li>
-              <div class="time_number" id="minutos">0</div>
-              <div class="time_txt">{{cuentaRegresiva.minutos}}</div>
-            </li>
-            <li>
-              <div class="time_number" id="segundos">0</div>
-              <div class="time_txt">{{cuentaRegresiva.segundos}}</div>
-            </li>
-          </ul>
-        </section>
-        {{/cuentaRegresiva}}
+              <div class="grabado-separador" aria-hidden="true">★</div>
+
+              <div class="date-box">
+                <span>{{invitacion.fecha.dia}}</span>
+                <strong>{{invitacion.fecha.fecha}}</strong>
+                <span>{{invitacion.fecha.hora}}</span>
+              </div>
+            </div>
+          </section>
+          {{/invitacion}}
+
+          <!-- 6. CUENTA REGRESIVA como reloj de cantina (la fecha sale de evento.inicio) -->
+          {{#cuentaRegresiva}}
+          <section class="section-timer">
+            <h2>{{cuentaRegresiva.titulo}}</h2>
+            <!-- Reloj horizontal: carátula a la izquierda y placa con la cuenta a la derecha -->
+            <div class="reloj">
+              <div class="reloj-caja">
+                <span class="reloj-mono" aria-hidden="true"></span>
+                <!-- Carátula: marca la hora real -->
+                <div class="reloj-caratula" aria-hidden="true">
+                  <span class="reloj-corazon">♥</span>
+                  <span class="manecilla horaria"></span>
+                  <span class="manecilla minutero"></span>
+                  <span class="manecilla segundero"></span>
+                </div>
+                <!-- Placa de latón con la cuenta regresiva -->
+                <ul class="date-time">
+                  <li>
+                    <div class="time_number" id="dias">0</div>
+                    <div class="time_txt">{{cuentaRegresiva.dias}}</div>
+                  </li>
+                  <li>
+                    <div class="time_number" id="horas">0</div>
+                    <div class="time_txt">{{cuentaRegresiva.horas}}</div>
+                  </li>
+                  <li>
+                    <div class="time_number" id="minutos">0</div>
+                    <div class="time_txt">{{cuentaRegresiva.minutos}}</div>
+                  </li>
+                  <li>
+                    <div class="time_number" id="segundos">0</div>
+                    <div class="time_txt">{{cuentaRegresiva.segundos}}</div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          {{/cuentaRegresiva}}
+        </div>
 
         <!-- 7. UBICACIONES -->
         {{#ubicaciones}}
         <section class="section-place">
           {{#ubicaciones.lugares}}
           <div class="place-card">
+            {{#@primero}}<img class="deco-estrella" src="./assets/img/estrella-sheriff.svg" alt="" />{{/@primero}}
             <h2>{{titulo}}</h2>
             <p><b>{{hora}}</b> {{lugar}}</p>
             <a class="place-btn" href="{{mapa}}" target="_blank">{{boton}}</a>
           </div>
           {{/ubicaciones.lugares}}
+          <!-- Cactus rosa recargado en la última tarjeta -->
+          <img class="deco-cactus" src="./assets/img/cactus.png" alt="" />
         </section>
         {{/ubicaciones}}
 
@@ -487,6 +514,8 @@
               />{{/galeria.fotos}}
             </figure>
           </div>
+          <!-- Estrella de sheriff pegada en la esquina de la foto -->
+          <img class="deco-estrella" src="./assets/img/estrella-sheriff.svg" alt="" />
         </section>
         {{/galeria}}
 
@@ -496,6 +525,11 @@
           <div class="info-block">
             <h2>{{vestimenta.titulo}}</h2>
             <p>{{vestimenta.texto}}</p>
+            <!-- Sombrero y botas rosas: la idea del outfit -->
+            <div class="vestimenta-deco" aria-hidden="true">
+              <img class="deco-sombrero" src="./assets/img/sombrero.png" alt="" />
+              <img class="deco-botas" src="./assets/img/botas.png" alt="" />
+            </div>
           </div>
           {{/vestimenta}} {{#vestimenta}}{{#regalos}}
           <div class="info-separator"></div>
@@ -512,6 +546,8 @@
         <section class="section-message">
           <p>{{confirmacion.frase}}</p>
           <b>{{confirmacion.destacado}}</b>
+          <!-- Vaca con chicle asomándose por encima del formulario -->
+          <img class="rsvp-vaca" src="./assets/img/vaca.png" alt="" />
           <form class="rsvp-form">
             <h3>{{confirmacion.titulo}}</h3>
             <input
