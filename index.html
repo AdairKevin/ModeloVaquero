@@ -502,6 +502,21 @@
         </section>
         {{/ubicaciones}}
 
+        <!-- CALENDARIO: lo arma main.js con evento.inicio -->
+        {{#calendario}}<section class="section-calendario" id="calendario"></section>{{/calendario}}
+
+        <!-- CRONOGRAMA: línea de tiempo vertical con la hora de cada momento -->
+        {{#cronograma}}
+        <section class="section-cronograma">
+          <h2>{{cronograma.titulo}}</h2>
+          <ul class="cronograma">
+            {{#cronograma.actividades}}
+            <li><span class="hora">{{hora}}</span><span class="actividad">{{actividad}}</span></li>
+            {{/cronograma.actividades}}
+          </ul>
+        </section>
+        {{/cronograma}}
+
         <!-- GALERÍA (después de la recepción) -->
         {{#galeria}}
         <section class="section-slider">
@@ -521,10 +536,43 @@
 
         <!-- 8. INFO ADICIONAL -->
         <section class="section-info-adicional">
+          <!-- Dibujos reutilizables de vestimenta y regalos (se pintan con el color del texto) -->
+          <svg class="iconos-defs" aria-hidden="true">
+            <symbol id="icono-caja" viewBox="0 0 64 64">
+              <rect x="8" y="24" width="48" height="34" rx="3" fill="currentColor" />
+              <rect x="4" y="14" width="56" height="12" rx="3" fill="currentColor" />
+              <rect x="28" y="14" width="8" height="44" style="fill: var(--rosa-palo)" />
+              <path d="M32 14 C22 0 12 4 22 14 M32 14 C42 0 52 4 42 14" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+            </symbol>
+            <symbol id="icono-camisa" viewBox="0 0 64 64">
+              <path d="M22 6 L8 14 L2 26 L12 30 L16 24 V58 H48 V24 L52 30 L62 26 L56 14 L42 6 Q32 14 22 6 Z" fill="currentColor" />
+            </symbol>
+            <symbol id="icono-bota" viewBox="0 0 64 64">
+              <path d="M18 6 H38 V34 L56 42 Q60 44 60 50 V56 H6 V32 Q6 28 10 26 L18 22 Z" fill="currentColor" />
+            </symbol>
+            <symbol id="icono-sobre" viewBox="0 0 64 48">
+              <rect x="3" y="6" width="58" height="38" rx="4" fill="none" stroke="currentColor" stroke-width="4" />
+              <path d="M5 10 L32 30 L59 10" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round" />
+            </symbol>
+          </svg>
+
           {{#vestimenta}}
           <div class="info-block">
             <h2>{{vestimenta.titulo}}</h2>
             <p>{{vestimenta.texto}}</p>
+            <!-- Placa tipo sheriff con el código del outfit -->
+            <div class="codigo-placa">
+              <svg class="codigo-escudo" viewBox="0 0 200 230" aria-hidden="true">
+                <path class="escudo-borde" d="M14 14 H186 V150 C186 190 140 210 100 224 C60 210 14 190 14 150 Z" />
+                <path class="escudo-centro" transform="translate(100 119) scale(0.88) translate(-100 -119)" d="M14 14 H186 V150 C186 190 140 210 100 224 C60 210 14 190 14 150 Z" />
+              </svg>
+              <div class="codigo-texto">
+                <p class="codigo-arriba">{{vestimenta.codigoArriba}}</p>
+                <p class="codigo-nombre">{{vestimenta.codigoNombre}}</p>
+                <p class="codigo-detalle">{{vestimenta.codigoDetalle}}</p>
+                <svg class="codigo-icono" aria-hidden="true"><use href="#icono-bota" /></svg>
+              </div>
+            </div>
             <!-- Sombrero y botas rosas: la idea del outfit -->
             <div class="vestimenta-deco" aria-hidden="true">
               <img class="deco-sombrero" src="./assets/img/sombrero.png" alt="" />
@@ -536,7 +584,22 @@
           {{/regalos}}{{/vestimenta}} {{#regalos}}
           <div class="info-block">
             <h2>{{regalos.titulo}}</h2>
+            <svg class="regalos-caja" aria-hidden="true"><use href="#icono-caja" /></svg>
             <p>{{regalos.texto}}</p>
+            <ul class="regalos-lista">
+              {{#regalos.detalles}}
+              <li>
+                <svg aria-hidden="true"><use href="#icono-{{icono}}" /></svg>
+                <span>{{texto}}</span>
+              </li>
+              {{/regalos.detalles}}
+            </ul>
+            {{#regalos.mensaje}}
+            <div class="regalos-sobre">
+              <svg aria-hidden="true"><use href="#icono-sobre" /></svg>
+              <p>{{regalos.mensaje}}</p>
+            </div>
+            {{/regalos.mensaje}}
           </div>
           {{/regalos}}
         </section>

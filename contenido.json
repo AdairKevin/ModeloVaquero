@@ -4,7 +4,10 @@
     "titulo": "Modelo Vaquero"
   },
   "evento": {
-    "inicio": "2027-01-01T16:00"
+    "inicio": "2027-01-01T16:00",
+    "duracionHoras": 6,
+    "tituloCalendario": "Mis XV años",
+    "lugarCalendario": "Nombre del lugar"
   },
   "puertas": {
     "letrero": "Bienvenidos",
@@ -83,29 +86,51 @@
       }
     ]
   },
+  "calendario": {
+    "titulo": "Reserva la fecha",
+    "botonGoogle": "Google Calendar",
+    "botonIcs": "Apple / Outlook"
+  },
+  "cronograma": {
+    "titulo": "Cronograma",
+    "actividades": [
+      { "hora": "16:00 hrs", "actividad": "Ceremonia" },
+      { "hora": "18:00 hrs", "actividad": "Recepción y brindis" },
+      { "hora": "19:30 hrs", "actividad": "Cena" },
+      { "hora": "21:00 hrs", "actividad": "Baile" }
+    ]
+  },
   "galeria": {
     "fotos": [
       {
-        "foto": "./assets/img/foto1.jpg",
+        "foto": "./assets/img/portada.jpg",
         "alt": "Foto 1"
       },
       {
-        "foto": "./assets/img/foto2.jpg",
+        "foto": "./assets/img/portada.jpg",
         "alt": "Foto 2"
       },
       {
-        "foto": "./assets/img/foto3.jpg",
+        "foto": "./assets/img/portada.jpg",
         "alt": "Foto 3"
       }
     ]
   },
   "vestimenta": {
     "titulo": "Vestimenta",
-    "texto": "Código de vestimenta y colores reservados."
+    "texto": "Código de vestimenta y colores reservados.",
+    "codigoArriba": "Código de vestimenta",
+    "codigoNombre": "VAQUERO",
+    "codigoDetalle": "Ponte tus botas y sombrero"
   },
   "regalos": {
     "titulo": "Mesa de regalos",
-    "texto": "Tu presencia es el mejor regalo."
+    "texto": "Tu presencia es el mejor regalo.",
+    "detalles": [
+      { "icono": "camisa", "texto": "Talla de ropa: 00" },
+      { "icono": "bota", "texto": "Calzado: 00" }
+    ],
+    "mensaje": "Si deseas obsequiarme algo, lo recibiré con mucha emoción."
   },
   "confirmacion": {
     "frase": "Los mejores momentos merecen ser compartidos",

@@ -15,6 +15,8 @@
     transparent
   ); /* líneas finas */
   --sombra: 0 8px 18px rgba(122, 35, 72, 0.14);
+  /* Aire entre secciones: una sola medida para que todo el ritmo vertical sea parejo */
+  --espacio-seccion: 44px;
   /* Madera coñac, cromo y soga de las puertas de cantina */
   --cromo: linear-gradient(
     135deg,
