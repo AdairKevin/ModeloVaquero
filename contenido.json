@@ -125,12 +125,10 @@
   },
   "regalos": {
     "titulo": "Mesa de regalos",
-    "texto": "Tu presencia es el mejor regalo.",
-    "detalles": [
-      { "icono": "camisa", "texto": "Talla de ropa: 00" },
-      { "icono": "bota", "texto": "Calzado: 00" }
-    ],
-    "mensaje": "Si deseas obsequiarme algo, lo recibiré con mucha emoción."
+    "texto": "Ustedes son el mejor regalo.",
+    "mensaje": "Si deseas obsequiarme algo, lo recibiré con mucha emoción.",
+    "boton": "Ver mesa de regalos",
+    "enlace": ""
   },
   "confirmacion": {
     "frase": "Los mejores momentos merecen ser compartidos",
@@ -152,6 +150,7 @@
     "texto": "Diseñado por",
     "marca": "Mirai",
     "link": "https://www.facebook.com/profile.php?id=61568997140138",
-    "anio": "@2026"
+    "anio": "@2026",
+    "tiktok": ""
   }
 }
